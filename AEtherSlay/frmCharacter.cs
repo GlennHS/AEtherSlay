@@ -216,7 +216,7 @@ namespace AEtherSlay
                     break;
                 case 1:
                     player = new playerClass("Bard", "Charisma", new List<string>() { "Light Armor", "Simple Weapons", "Hand Crossbows", "Longswords", "Rapiers", "Shortswords" }, new string[] { "Dexterity", "Charisma" }, 8);
-                    preferredStatsIRA = new List<string>() { "CHA", "WIS" };
+                    preferredStatsIRA = new List<string>() { "CHA", "WIS", "CON" };
                     break;
                 case 2:
                     player = new playerClass("Cleric", "Wisdom", new List<string>() { "Light Armor", "Medium Armor", "Shields", "Simple Weapons" }, new string[] { "Charisma", "Wisdom" }, 8);
@@ -236,7 +236,7 @@ namespace AEtherSlay
                     break;
                 case 6:
                     player = new playerClass("Paladin", "Charisma", new List<string>() { "Light Armor", "Medium Armor", "Heavy Armor", "Shields", "Simple Weapons", "Martial Weapons" }, new string[] { "Charisma", "Wisdom" }, 10);
-                    preferredStatsIRA = new List<string>() { "CHA", "STR" };
+                    preferredStatsIRA = new List<string>() { "CHA", "STR", "CON" };
                     break;
                 case 7:
                     player = new playerClass("Ranger", "Wisdom", new List<string>() { "Light Armor", "Medium Armor", "Shields", "Simple Weapons", "Martial Weapons" }, new string[] { "Strength", "Dexterity" }, 10);
@@ -244,7 +244,7 @@ namespace AEtherSlay
                     break;
                 case 8:
                     player = new playerClass("Rogue", "Intelligence", new List<string>() { "Light Armor", "Simple Weapons", "Hand Crossbows", "Longswords", "Rapiers", "Shortswords" }, new string[] { "Dexterity", "Intelligence" }, 8);
-                    preferredStatsIRA = new List<string>() { "DEX", "INT" };
+                    preferredStatsIRA = new List<string>() { "DEX", "INT", "WIS" };
                     break;
                 case 9:
                     player = new playerClass("Sorcerer", "Charisma", new List<string>() { "Daggers", "Darts", "Slings", "Quarterstaffs", "Light Crossbows" }, new string[] { "Charisma", "Constitution" }, 6);
