@@ -737,9 +737,27 @@ namespace AEtherSlay
                         //weapons.Add(Program.catalog.findWeapon((String)cbWeapon2.Text));
                         weapons.Add((Catalog.Weapon)(((ComboboxItem)cbWeapon2.SelectedItem).Value));
                     }
-                    armor = Program.catalog.findArmor((String)cbArmor1.Text);
+                    armor = Program.catalog.findArmor((string)cbArmor1.Text);
 
-                    player = new Catalog.PlayerCharacter(name, statRolls, className, raceName, speed, weapons, armor, alignment, equipment, languages, resistances, spellcastingStat, proficiencies, hitDiceSides, savingThrows, traits);
+                    string equipString = "", langString = "", traitString = "", profString = "";
+                    foreach(string equip in equipment)
+                    {
+                        equipString += $"${equip}\n";
+                    }
+                    foreach (string lang in languages)
+                    {
+                        langString += $"${lang}\n";
+                    }
+                    foreach (string trait in traits)
+                    {
+                        traitString += $"${trait}\n";
+                    }
+                    foreach (string prof in proficiencies)
+                    {
+                        profString += $"${prof}\n";
+                    }
+
+                    player = new Catalog.PlayerCharacter(name, statRolls, className, raceName, speed, weapons, armor, alignment, equipString, langString, resistances, spellcastingStat, profString, hitDiceSides, savingThrows, traitString);
                     Program.storage.addCharacterSheet(player);
                     MessageBox.Show("Success!", "Character Created!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } catch

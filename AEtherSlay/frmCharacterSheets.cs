@@ -111,32 +111,16 @@ namespace AEtherSlay
             rtbNotes.Text = selectedCharacter.notes;
 
             rtbProficiencies.Text = "PROFICIENCIES\n\n";
-            try
-            {
-                foreach (String prof in selectedCharacter.proficiencies) { rtbProficiencies.Text += prof + "\n"; }
-            }
-            catch { }
+            rtbProficiencies.Text = selectedCharacter.proficiencies;
 
             rtbTraits.Text = "TRAITS\n\n";
-            try
-            {
-                foreach (String trait in selectedCharacter.traits) { rtbTraits.Text += trait + "\n"; }
-            }
-            catch { }
+            rtbTraits.Text += selectedCharacter.traits;
 
             rtbLanguages.Text = "LANGUAGES\n\n";
-            try
-            {
-                foreach (String language in selectedCharacter.languages) { rtbLanguages.Text += language + "\n"; }
-            }
-            catch { }
+            rtbLanguages.Text += selectedCharacter.languages;
 
             rtbEquipment.Text = "EQUIPMENT\n\n";
-            try
-            {
-                foreach (String equip in selectedCharacter.equipment) { rtbEquipment.Text += equip + "\n"; }
-            }
-            catch { }
+            rtbEquipment.Text += selectedCharacter.equipment;
         }
 
         private void lbWeapons_SelectedIndexChanged(object sender, EventArgs e)

@@ -90,7 +90,7 @@ namespace AEtherSlay
                             new Armor("Plate", 0, 18, true)
                     },
                     armorList;
-        public static List<String> languages = new List<String>()
+        public static List<string> languages = new List<string>()
                     {
                             "Common",
                             "Elvish",
@@ -475,16 +475,16 @@ namespace AEtherSlay
         {
             public String       name
                                ,alignment
-                               ,spellcastingStat;
-            public List<String> proficiencies  
-                               ,languages      
-                               ,savingThrows   
-                               ,traits         
+                               ,spellcastingStat
+                               ,misc
+                               ,equipment
+                               ,proficiencies
+                               ,traits
+                               ,languages;
+            public List<String> savingThrows
                                ,immunities     
                                ,resistances    
-                               ,vulnerabilities
-                               ,misc
-                               ,equipment;
+                               ,vulnerabilities;
             public List<Weapon> weapons;
             public Armor        armor;
             public Int16[]      stats     // STATS FOLLOW ORDER [STR, DEX, CON, INT, WIS, CHA]
@@ -498,7 +498,7 @@ namespace AEtherSlay
                                ,level
                                ,speed;
 
-            protected Character(short speed, string spellcastingStat, List<String> proficiencies, List<String> savingThrows, short hitDiceSides)
+            protected Character(short speed, string spellcastingStat, string proficiencies, List<String> savingThrows, short hitDiceSides)
             {
                 this.spellcastingStat = spellcastingStat;
                 this.proficiencies = proficiencies;
@@ -514,7 +514,7 @@ namespace AEtherSlay
                 // DANGEROUS INSTANTIATION TRY AND AVOID
             }
 
-            protected Character(String name, Int16[] statRolls, Int16 speed, List<Weapon> weapons, Armor armor, String alignment, List<String> equipment, List<String> languages, List<String> resistances, String spellcastingStat, List<String> proficiencies, Int16 hitDiceSides, List<String> savingThrows, List<String> traits)
+            protected Character(string name, short[] statRolls, short speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, string languages, List<string> resistances, string spellcastingStat, string proficiencies, Int16 hitDiceSides, List<string> savingThrows, string traits)
             {
                 this.name = name;
                 stats = statRolls;
@@ -531,7 +531,7 @@ namespace AEtherSlay
                 this.hitDiceSides = hitDiceSides;
                 hitDice = 1;
                 this.savingThrows = savingThrows;
-                misc = traits;
+                this.traits = traits;
 
                 calcAC();
                 calcHealth();
@@ -564,7 +564,7 @@ namespace AEtherSlay
             public List<Spell> validSpells, knownSpells = new List<Spell>();
             public string className, raceName, notes = "None Set";
 
-            public PlayerCharacter(String name, Int16[] statRolls, String className, String raceName, Int16 speed, List<Weapon> weapons, Armor armor, String alignment, List<String> equipment, List<String> languages, List<String> resistances, String spellcastingStat, List<String> proficiencies, Int16 hitDiceSides, List<String> savingThrows, List<String> traits)
+            public PlayerCharacter(String name, Int16[] statRolls, string className, string raceName, Int16 speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, string languages, List<string> resistances, string spellcastingStat, string proficiencies, Int16 hitDiceSides, List<string> savingThrows, string traits)
                              : base(name, statRolls, speed, weapons, armor, alignment, equipment, languages, resistances, spellcastingStat, proficiencies, hitDiceSides, savingThrows, traits)
             {
                 stats = statRolls;
