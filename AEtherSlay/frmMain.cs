@@ -20,9 +20,6 @@ namespace AEtherSlay
         Image    imgHeads = Image.FromFile("../Images/DnDCoinH.png");
         Image    imgTails = Image.FromFile("../Images/DnDCoinT.png");
 
-        // VERSION NUMBER
-        String   versionNum = "0.0.alpha.5.0";
-
         public frmMain()
         {
             InitializeComponent();
@@ -32,7 +29,7 @@ namespace AEtherSlay
                 box.Enabled = false;
                 box.Text = "0";
             }
-            lblVersion.Text = "Version Number: " + versionNum;
+            lblVersion.Text = "Version Number: " + Program.version;
             pbCoin.Image = Image.FromFile("../Images/DnDCoinH.png");
         }
 

@@ -278,7 +278,7 @@ namespace AEtherSlay
             {
                 case 0:
                     raceName = "High Elf";
-                    statRolls[1] += 2;
+                    statRolls[2] += 2;
                     statRolls[3] += 1;
                     traits.AddRange(new List<String>() { "Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Cantrip", "Additional Language" });
                     proficiencies.AddRange( new List<String>{ "Perception", "Longsword", "Shortsword", "Shortbow", "Longbow" });
@@ -287,7 +287,7 @@ namespace AEtherSlay
 
                 case 1:
                     raceName = "Wood Elf";
-                    statRolls[1] += 2;
+                    statRolls[2] += 2;
                     statRolls[4] += 1;
                     speed = 35;
                     traits.AddRange(new List<String>() { "Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Mask Of The Wild" });
@@ -297,7 +297,7 @@ namespace AEtherSlay
 
                 case 2:
                     raceName = "Hill Dwarf";
-                    statRolls[2] += 2;
+                    statRolls[1] += 2;
                     statRolls[4] += 1;
                     health += 1;
                     speed = 25;
@@ -309,7 +309,7 @@ namespace AEtherSlay
 
                 case 3:
                     raceName = "Mountain Dwarf";
-                    statRolls[2] += 2;
+                    statRolls[1] += 2;
                     statRolls[0] += 2;
                     speed = 25;
                     traits.AddRange(new List<String>() { "Darkvision", "Advantage on Saving Throws [Poison]", "Dwarven Toughness", "Tool Proficiency", "Stonecunning" });
@@ -322,7 +322,7 @@ namespace AEtherSlay
 
                 case 4:
                     raceName = "Dark Elf";
-                    statRolls[1] += 2;
+                    statRolls[2] += 2;
                     statRolls[5] += 1;
                     traits.AddRange(new List<String>() { "Superior Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Sunlight Sensitivity", "Drow Magic" });
                     proficiencies.AddRange(new List<String> { "Perception", "Rapier", "Shortsword", "Hand Crossbow" });
@@ -331,7 +331,7 @@ namespace AEtherSlay
 
                 case 5:
                     raceName = "Lightfoot Halfling";
-                    statRolls[1] += 2;
+                    statRolls[2] += 2;
                     statRolls[5] += 1;
                     speed = 25;
                     traits.AddRange(new List<String>() { "Lucky", "Brave", "Halfling Nimbleness", "Naturally Stealthy" });
@@ -340,8 +340,8 @@ namespace AEtherSlay
 
                 case 6:
                     raceName = "Stout Halfling";
-                    statRolls[1] += 2;
-                    statRolls[2] += 1;
+                    statRolls[2] += 2;
+                    statRolls[1] += 1;
                     speed = 25;
                     traits.AddRange(new List<String>() { "Lucky", "Brave", "Halfling Nimbleness", "Poison Resistance", "Advantage Saving Throws Poison" });
                     languages.Add("Halfling");
@@ -377,7 +377,7 @@ namespace AEtherSlay
                 case 9:
                     raceName = "Forest Gnome";
                     statRolls[3] += 2;
-                    statRolls[1] += 1;
+                    statRolls[2] += 1;
                     languages.Add("Gnomish");
                     traits.AddRange(new List<String>() { "Darkvision", "Gnome Cunning", "Natural Illusionist", "Speak w/Small Beasts" });
                     break;
@@ -385,7 +385,7 @@ namespace AEtherSlay
                 case 10:
                     raceName = "Rock Gnome";
                     statRolls[3] += 2;
-                    statRolls[2] += 1;
+                    statRolls[1] += 1;
                     languages.Add("Gnomish");
                     traits.AddRange(new List<String>() { "Darkvision", "Gnome Cunning", "Artificer's Lore", "Tinker" });
                     break;
@@ -407,7 +407,7 @@ namespace AEtherSlay
                 case 12:
                     raceName = "Half Orc";
                     statRolls[0] += 2;
-                    statRolls[2] += 1;
+                    statRolls[1] += 1;
                     languages.Add("Orc");
                     traits.AddRange(new List<String>() { "Darkvision", "Relentless Endurance", "Savage Attacks" });
                     proficiencies.Add("Intimidation");

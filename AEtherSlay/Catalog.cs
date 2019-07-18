@@ -448,6 +448,7 @@ namespace AEtherSlay
             new Spell(9, "Weird", new List<String>() { "wizard"}),
             new Spell(9, "Wish", new List<String>() { "sorcerer", "wizard"})
         };
+        public List<CreatureCharacter> creatureList = new List<CreatureCharacter>();
         #endregion
 
         public Catalog()
@@ -605,10 +606,10 @@ namespace AEtherSlay
             }
         }
 
-        //public class CreatureCharacter : Character
-        //{
+        public class CreatureCharacter : Character
+        {
 
-        //}
+        }
 
         public short[] rollStats()
         {

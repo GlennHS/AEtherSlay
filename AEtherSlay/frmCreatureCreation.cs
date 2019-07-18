@@ -20,7 +20,6 @@ namespace AEtherSlay
             InitializeComponent();
         }
         List<Creature> allCreatures= new List<Creature>();
-        //List<String> returnedCreatureNames;
         JArray storedCreatures = (JArray)JsonConvert.DeserializeObject<object>(File.ReadAllText(@"..\Monsters.json"));
         Creature selectedCreature;
 
@@ -192,7 +191,7 @@ namespace AEtherSlay
                     currentCreature.languages.AddRange(splitString((string)creature.SelectToken("languages")));
                     currentCreature.senses.AddRange(splitString((string)creature.SelectToken("senses")));
                     currentCreature.challengeRating = handleCR(creature.SelectToken("challenge_rating").ToString());
-                    currentCreature.passivePerception = (short?)(10 + currentCreature.skills[12].mod);
+                    currentCreature.passivePerception = (short?)(10 + currentCreature.skills[11].mod);
                     currentCreature.setInit();
                     try
                     {

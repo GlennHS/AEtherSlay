@@ -20,3 +20,25 @@ C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Release\A
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Release\AEtherSlay.frmCreatureCreation.resources
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Release\AEtherSlay.frmNewArmor.resources
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Release\AEtherSlay.csproj.CopyComplete
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Release\AEtherSlay.exe.config
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Release\AEtherSlay.exe.manifest
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Release\AEtherSlay.application
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Release\AEtherSlay.exe
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Release\AEtherSlay.pdb
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Release\Newtonsoft.Json.dll
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Release\Newtonsoft.Json.xml
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.csprojAssemblyReference.cache
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.frmCharacterCreation.resources
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.frmCharacterDialog.resources
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.frmCharacterSheets.resources
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.frmCreatureCreation.resources
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.frmMain.resources
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.frmNewArmor.resources
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.Properties.Resources.resources
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.csproj.GenerateResource.cache
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.csproj.CoreCompileInputs.cache
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.exe.manifest
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.application
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.csproj.CopyComplete
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.exe
+C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Release\AEtherSlay.pdb
