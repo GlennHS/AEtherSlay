@@ -118,7 +118,7 @@ namespace AEtherSlay
         //    string name, type, subtype, size, alignment, speed;
         //}
 
-        private Skill getStatMod(string name, short coreStat, short? mod = 0)
+        private Skill Catalog.getStatMod(string name, short coreStat, short? mod = 0)
         {
             if(mod != 0 && mod != null)
             {
@@ -145,7 +145,7 @@ namespace AEtherSlay
             {
                 if (creature.SelectToken("license") == null)
                 {
-                    Creature currentCreature = new Creature();
+                    Catalog.CreatureCharacter currentCreature = new Catalog.CreatureCharacter();
                     currentCreature.name = (string)creature.SelectToken("name");
                     currentCreature.size = (string)creature.SelectToken("size");
                     currentCreature.type = (string)creature.SelectToken("type");
@@ -166,24 +166,24 @@ namespace AEtherSlay
                     currentCreature.intSave = (short?)creature.SelectToken("intelligence_save") ?? Program.catalog.calcModifier(currentCreature.rawInt);
                     currentCreature.wisSave = (short?)creature.SelectToken("wisdom_save") ?? Program.catalog.calcModifier(currentCreature.rawWis);
                     currentCreature.chaSave = (short?)creature.SelectToken("charisma_save") ?? Program.catalog.calcModifier(currentCreature.rawCha);
-                    currentCreature.skills.Add(getStatMod("acrobatics", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("acrobatics")));
-                    currentCreature.skills.Add(getStatMod("animal_handling", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("animal_handling")));
-                    currentCreature.skills.Add(getStatMod("arcana", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("arcana")));
-                    currentCreature.skills.Add(getStatMod("athletics", Program.catalog.calcModifier(currentCreature.rawStr), (short?)creature.SelectToken("athletics")));
-                    currentCreature.skills.Add(getStatMod("deception", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("deception")));
-                    currentCreature.skills.Add(getStatMod("history", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("history")));
-                    currentCreature.skills.Add(getStatMod("insight", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("insight")));
-                    currentCreature.skills.Add(getStatMod("intimidation", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("intimidation")));
-                    currentCreature.skills.Add(getStatMod("investigation", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("investigation")));
-                    currentCreature.skills.Add(getStatMod("medicine", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("medicine")));
-                    currentCreature.skills.Add(getStatMod("nature", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("nature")));
-                    currentCreature.skills.Add(getStatMod("perception", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("perception")));
-                    currentCreature.skills.Add(getStatMod("performance", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("performance")));
-                    currentCreature.skills.Add(getStatMod("persuasion", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("persuasion")));
-                    currentCreature.skills.Add(getStatMod("religion", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("religion")));
-                    currentCreature.skills.Add(getStatMod("sleight_of_hand", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("sleight_of_hand")));
-                    currentCreature.skills.Add(getStatMod("stealth", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("stealth")));
-                    currentCreature.skills.Add(getStatMod("survival", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("survival")));
+                    currentCreature.skills.Add(Catalog.getStatMod("acrobatics", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("acrobatics")));
+                    currentCreature.skills.Add(Catalog.getStatMod("animal_handling", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("animal_handling")));
+                    currentCreature.skills.Add(Catalog.getStatMod("arcana", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("arcana")));
+                    currentCreature.skills.Add(Catalog.getStatMod("athletics", Program.catalog.calcModifier(currentCreature.rawStr), (short?)creature.SelectToken("athletics")));
+                    currentCreature.skills.Add(Catalog.getStatMod("deception", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("deception")));
+                    currentCreature.skills.Add(Catalog.getStatMod("history", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("history")));
+                    currentCreature.skills.Add(Catalog.getStatMod("insight", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("insight")));
+                    currentCreature.skills.Add(Catalog.getStatMod("intimidation", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("intimidation")));
+                    currentCreature.skills.Add(Catalog.getStatMod("investigation", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("investigation")));
+                    currentCreature.skills.Add(Catalog.getStatMod("medicine", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("medicine")));
+                    currentCreature.skills.Add(Catalog.getStatMod("nature", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("nature")));
+                    currentCreature.skills.Add(Catalog.getStatMod("perception", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("perception")));
+                    currentCreature.skills.Add(Catalog.getStatMod("performance", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("performance")));
+                    currentCreature.skills.Add(Catalog.getStatMod("persuasion", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("persuasion")));
+                    currentCreature.skills.Add(Catalog.getStatMod("religion", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("religion")));
+                    currentCreature.skills.Add(Catalog.getStatMod("sleight_of_hand", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("sleight_of_hand")));
+                    currentCreature.skills.Add(Catalog.getStatMod("stealth", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("stealth")));
+                    currentCreature.skills.Add(Catalog.getStatMod("survival", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("survival")));
                     currentCreature.damageVulns.AddRange(splitString((string)creature.SelectToken("damage_vulnerabilities")));
                     currentCreature.damageRes.AddRange(splitString((string)creature.SelectToken("damage_resistances")));
                     currentCreature.damageImm.AddRange(splitString((string)creature.SelectToken("damage_immunities")));
@@ -192,7 +192,6 @@ namespace AEtherSlay
                     currentCreature.senses.AddRange(splitString((string)creature.SelectToken("senses")));
                     currentCreature.challengeRating = handleCR(creature.SelectToken("challenge_rating").ToString());
                     currentCreature.passivePerception = (short?)(10 + currentCreature.skills[11].mod);
-                    currentCreature.setInit();
                     try
                     {
                         foreach (JToken attack in (JArray)creature.SelectToken("actions"))

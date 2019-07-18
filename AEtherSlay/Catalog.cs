@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.IO;
 
 /*
  * MAIN DnD CATALOG CLASS
@@ -449,6 +452,7 @@ namespace AEtherSlay
             new Spell(9, "Wish", new List<String>() { "sorcerer", "wizard"})
         };
         public List<CreatureCharacter> creatureList = new List<CreatureCharacter>();
+        JArray storedCreatures = (JArray)JsonConvert.DeserializeObject<object>(File.ReadAllText(@"..\Monsters.json"));
         #endregion
 
         public Catalog()
@@ -470,6 +474,134 @@ namespace AEtherSlay
 
             weapons.AddRange(simple);
             weapons.AddRange(martial);
+        }
+
+        private void populateCreatureList()
+        {
+            foreach (JToken creature in storedCreatures)
+            {
+                if (creature.SelectToken("license") == null)
+                {
+                    CreatureCharacter currentCreature = new CreatureCharacter();
+                    currentCreature.name = (string)creature.SelectToken("name");
+                    currentCreature.size = (string)creature.SelectToken("size");
+                    currentCreature.type = (string)creature.SelectToken("type");
+                    currentCreature.subtype = (string)creature.SelectToken("subtype") ?? "NONE";
+                    currentCreature.armorClass = (short)creature.SelectToken("armor_class");
+                    currentCreature.hitPoints = (short)creature.SelectToken("hit_points");
+                    currentCreature.alignment = (string)creature.SelectToken("alignment");
+                    currentCreature.speed = (string)creature.SelectToken("speed") ?? "NONE";
+                    currentCreature.rawStr = (short)creature.SelectToken("strength");
+                    currentCreature.rawCon = (short)creature.SelectToken("constitution");
+                    currentCreature.rawDex = (short)creature.SelectToken("dexterity");
+                    currentCreature.rawInt = (short)creature.SelectToken("intelligence");
+                    currentCreature.rawWis = (short)creature.SelectToken("wisdom");
+                    currentCreature.rawCha = (short)creature.SelectToken("charisma");
+                    currentCreature.strSave = (short?)creature.SelectToken("strength_save") ?? Program.catalog.calcModifier(currentCreature.rawStr);
+                    currentCreature.conSave = (short?)creature.SelectToken("constitution_save") ?? Program.catalog.calcModifier(currentCreature.rawCon);
+                    currentCreature.dexSave = (short?)creature.SelectToken("dexterity_save") ?? Program.catalog.calcModifier(currentCreature.rawDex);
+                    currentCreature.intSave = (short?)creature.SelectToken("intelligence_save") ?? Program.catalog.calcModifier(currentCreature.rawInt);
+                    currentCreature.wisSave = (short?)creature.SelectToken("wisdom_save") ?? Program.catalog.calcModifier(currentCreature.rawWis);
+                    currentCreature.chaSave = (short?)creature.SelectToken("charisma_save") ?? Program.catalog.calcModifier(currentCreature.rawCha);
+                    currentCreature.skills.Add(getStatMod("acrobatics", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("acrobatics")));
+                    currentCreature.skills.Add(getStatMod("animal_handling", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("animal_handling")));
+                    currentCreature.skills.Add(getStatMod("arcana", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("arcana")));
+                    currentCreature.skills.Add(getStatMod("athletics", Program.catalog.calcModifier(currentCreature.rawStr), (short?)creature.SelectToken("athletics")));
+                    currentCreature.skills.Add(getStatMod("deception", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("deception")));
+                    currentCreature.skills.Add(getStatMod("history", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("history")));
+                    currentCreature.skills.Add(getStatMod("insight", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("insight")));
+                    currentCreature.skills.Add(getStatMod("intimidation", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("intimidation")));
+                    currentCreature.skills.Add(getStatMod("investigation", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("investigation")));
+                    currentCreature.skills.Add(getStatMod("medicine", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("medicine")));
+                    currentCreature.skills.Add(getStatMod("nature", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("nature")));
+                    currentCreature.skills.Add(getStatMod("perception", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("perception")));
+                    currentCreature.skills.Add(getStatMod("performance", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("performance")));
+                    currentCreature.skills.Add(getStatMod("persuasion", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("persuasion")));
+                    currentCreature.skills.Add(getStatMod("religion", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("religion")));
+                    currentCreature.skills.Add(getStatMod("sleight_of_hand", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("sleight_of_hand")));
+                    currentCreature.skills.Add(getStatMod("stealth", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("stealth")));
+                    currentCreature.skills.Add(getStatMod("survival", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("survival")));
+                    currentCreature.damageVulns.AddRange(splitString((string)creature.SelectToken("damage_vulnerabilities")));
+                    currentCreature.damageRes.AddRange(splitString((string)creature.SelectToken("damage_resistances")));
+                    currentCreature.damageImm.AddRange(splitString((string)creature.SelectToken("damage_immunities")));
+                    currentCreature.conditionImm.AddRange(splitString((string)creature.SelectToken("condition_immunities")));
+                    currentCreature.languages.AddRange(splitString((string)creature.SelectToken("languages")));
+                    currentCreature.senses.AddRange(splitString((string)creature.SelectToken("senses")));
+                    currentCreature.challengeRating = handleCR(creature.SelectToken("challenge_rating").ToString());
+                    currentCreature.passivePerception = (short?)(10 + currentCreature.skills[11].mod);
+                    try
+                    {
+                        foreach (JToken attack in (JArray)creature.SelectToken("actions"))
+                        {
+                            Attack atkToAdd = new Attack();
+                            atkToAdd.name = (string)attack.SelectToken("name");
+                            atkToAdd.desc = (string)attack.SelectToken("desc");
+                            atkToAdd.dice = (string)attack.SelectToken("damage_dice") ?? "NONE";
+                            atkToAdd.atkBonus = (short?)attack.SelectToken("attack_bonus") ?? 0;
+                            atkToAdd.dmgBonus = (short?)attack.SelectToken("damage_bonus") ?? 0;
+                            currentCreature.attacks.Add(atkToAdd);
+                        }
+                    }
+                    catch { }
+                    try
+                    {
+                        foreach (JToken legAct in (JArray)creature.SelectToken("legendary_actions"))
+                        {
+                            SpecialAbility action = new SpecialAbility();
+                            action.name = (string)legAct.SelectToken("name");
+                            action.desc = (string)legAct.SelectToken("desc");
+                            currentCreature.legendaryActions.Add(action);
+                        }
+                    }
+                    catch { }
+                    try
+                    {
+                        foreach (JToken abi in (JArray)creature.SelectToken("special_abilities"))
+                        {
+                            SpecialAbility action = new SpecialAbility();
+                            action.name = (string)abi.SelectToken("name");
+                            action.desc = (string)abi.SelectToken("desc");
+                            currentCreature.specialAbilities.Add(action);
+                        }
+                    }
+                    catch { }
+                    creatureList.Add(currentCreature);
+                }
+            }
+        }
+
+        public decimal handleCR(string crString)
+        {
+            decimal outCR;
+            try { outCR = decimal.Parse(crString); }
+            catch
+            {
+                string[] crElems = crString.Split('/');
+                outCR = decimal.Parse(crElems[0]) / decimal.Parse(crElems[1]);
+            };
+            return outCR;
+        }
+
+        private Skill getStatMod(string name, short coreStat, short? mod = 0)
+        {
+            if (mod != 0 && mod != null)
+            {
+                return new Skill(mod, name);
+            }
+            else
+            {
+                return new Skill(coreStat, name);
+            }
+        }
+
+        private string[] splitString(string input)
+        {
+            string[] output = input.Split(",".ToCharArray()[0]);
+            foreach (string thing in output)
+            {
+                thing.Trim();
+            }
+            return output;
         }
 
         public abstract class Character
@@ -608,7 +740,75 @@ namespace AEtherSlay
 
         public class CreatureCharacter : Character
         {
+            public short? hitPoints, armorClass, initiative, passivePerception, rawStr, rawCon, rawDex, rawInt, rawWis, rawCha, strSave, conSave, dexSave, intSave, wisSave, chaSave;
+            public decimal challengeRating;
+            public List<string> damageVulns, damageRes, damageImm, conditionImm, languages, senses;
+            public string name, type, subtype, size, alignment, speed;
+            public List<Attack> attacks;
+            public List<SpecialAbility> legendaryActions, specialAbilities;
+            public List<Skill> skills;
 
+            public CreatureCharacter()
+            {
+                damageImm = new List<string>();
+                conditionImm = new List<string>();
+                languages = new List<string>();
+                damageRes = new List<string>();
+                damageVulns = new List<string>();
+                senses = new List<string>();
+                attacks = new List<Attack>();
+                legendaryActions = new List<SpecialAbility>();
+                specialAbilities = new List<SpecialAbility>();
+                skills = new List<Skill>();
+            }
+        }
+
+        public class Attack
+        {
+            public string name, desc, dice;
+            public short? atkBonus, dmgBonus;
+
+            public Attack()
+            {
+
+            }
+
+            public Attack(string name, string desc, string dice, short atkBonus, short dmgBonus)
+            {
+                this.name = name;
+                this.desc = desc;
+                this.dice = dice;
+                this.atkBonus = atkBonus;
+                this.dmgBonus = dmgBonus;
+            }
+        }
+
+        public class SpecialAbility
+        {
+            public string name, desc;
+
+            public SpecialAbility()
+            {
+
+            }
+
+            public SpecialAbility(string name, string desc)
+            {
+                this.name = name;
+                this.desc = desc;
+            }
+        }
+
+        public class Skill
+        {
+            public short? mod;
+            public string skill;
+
+            public Skill(short? mod, string skill)
+            {
+                this.mod = mod;
+                this.skill = skill;
+            }
         }
 
         public short[] rollStats()
