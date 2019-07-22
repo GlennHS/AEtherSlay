@@ -474,6 +474,8 @@ namespace AEtherSlay
 
             weapons.AddRange(simple);
             weapons.AddRange(martial);
+
+            populateCreatureList();
         }
 
         private void populateCreatureList()
@@ -582,7 +584,7 @@ namespace AEtherSlay
             return outCR;
         }
 
-        private Skill getStatMod(string name, short coreStat, short? mod = 0)
+        public Skill getStatMod(string name, short coreStat, short? mod = 0)
         {
             if (mod != 0 && mod != null)
             {
@@ -613,41 +615,37 @@ namespace AEtherSlay
                                ,equipment
                                ,proficiencies
                                ,traits
-                               ,languages;
+                               ,speed;
             public List<String> savingThrows
                                ,immunities     
                                ,resistances    
-                               ,vulnerabilities;
+                               ,vulnerabilities
+                               ,languages;
             public List<Weapon> weapons;
             public Armor        armor;
-            public Int16[]      stats     // STATS FOLLOW ORDER [STR, DEX, CON, INT, WIS, CHA]
-                               ,statMods  // STATS FOLLOW ORDER [STR, DEX, CON, INT, WIS, CHA]
-                               ,money = new short[5];
+            public Int16[]      stats
+                               ,statMods;  
             public Boolean      hasShield;
-            public Int16        ac
-                               ,health
-                               ,hitDiceSides
-                               ,hitDice
-                               ,level
-                               ,speed;
+            public Int16 ac
+                               , health
+                               , hitDiceSides
+                               , hitDice;
 
-            protected Character(short speed, string spellcastingStat, string proficiencies, List<String> savingThrows, short hitDiceSides)
+            protected Character(string speed, string spellcastingStat, string proficiencies, List<String> savingThrows, short hitDiceSides)
             {
                 this.spellcastingStat = spellcastingStat;
                 this.proficiencies = proficiencies;
                 this.savingThrows = savingThrows;
                 this.hitDiceSides = hitDiceSides;
-                level = 1;
                 this.speed = speed;
-
             }
 
             protected Character()
             {
-                // DANGEROUS INSTANTIATION TRY AND AVOID
+
             }
 
-            protected Character(string name, short[] statRolls, short speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, string languages, List<string> resistances, string spellcastingStat, string proficiencies, Int16 hitDiceSides, List<string> savingThrows, string traits)
+            protected Character(string name, short[] statRolls, string speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, List<string> languages, List<string> resistances, string spellcastingStat, string proficiencies, Int16 hitDiceSides, List<string> savingThrows, string traits)
             {
                 this.name = name;
                 stats = statRolls;
@@ -665,30 +663,6 @@ namespace AEtherSlay
                 hitDice = 1;
                 this.savingThrows = savingThrows;
                 this.traits = traits;
-
-                calcAC();
-                calcHealth();
-            }
-
-            private void calcAC()
-            {
-                // Check this.armor exists
-                if (!(armor == null))
-                {
-                    ac = armor.getAC(stats[1]);
-                } else
-                {
-                    ac = Convert.ToInt16(10 + statMods[1]);
-                }
-                if(hasShield)
-                {
-                    ac += 2;
-                }
-            }
-
-            private void calcHealth()
-            {
-                health = Convert.ToInt16(hitDiceSides + (((hitDiceSides / 2) + 1) * (level - 1)) + statMods[2]);
             }
         }
     
@@ -696,8 +670,10 @@ namespace AEtherSlay
         {
             public List<Spell> validSpells, knownSpells = new List<Spell>();
             public string className, raceName, notes = "None Set";
+            public short level = 1;
+            public short[] money = new short[5];
 
-            public PlayerCharacter(String name, Int16[] statRolls, string className, string raceName, Int16 speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, string languages, List<string> resistances, string spellcastingStat, string proficiencies, Int16 hitDiceSides, List<string> savingThrows, string traits)
+            public PlayerCharacter(string name, short[] statRolls, string className, string raceName, string speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, List<string> languages, List<string> resistances, string spellcastingStat, string proficiencies, Int16 hitDiceSides, List<string> savingThrows, string traits)
                              : base(name, statRolls, speed, weapons, armor, alignment, equipment, languages, resistances, spellcastingStat, proficiencies, hitDiceSides, savingThrows, traits)
             {
                 stats = statRolls;
@@ -712,6 +688,30 @@ namespace AEtherSlay
                 this.languages = languages;
                 this.resistances = resistances;
                 this.traits = traits;
+                calcAC();
+                calcHealth();
+            }
+
+            private void calcAC()
+            {
+                // Check this.armor exists
+                if (!(armor == null))
+                {
+                    ac = armor.getAC(stats[1]);
+                }
+                else
+                {
+                    ac = Convert.ToInt16(10 + statMods[1]);
+                }
+                if (hasShield)
+                {
+                    ac += 2;
+                }
+            }
+
+            private void calcHealth()
+            {
+                health = Convert.ToInt16(hitDiceSides + (((hitDiceSides / 2) + 1) * (level - 1)) + statMods[2]);
             }
 
             public List<Spell> getValidSpells()
@@ -742,17 +742,16 @@ namespace AEtherSlay
         {
             public short? hitPoints, armorClass, initiative, passivePerception, rawStr, rawCon, rawDex, rawInt, rawWis, rawCha, strSave, conSave, dexSave, intSave, wisSave, chaSave;
             public decimal challengeRating;
-            public List<string> damageVulns, damageRes, damageImm, conditionImm, languages, senses;
-            public string name, type, subtype, size, alignment, speed;
+            public List<string> damageVulns, damageRes, damageImm, conditionImm, senses;
+            public string type, subtype, size;
             public List<Attack> attacks;
             public List<SpecialAbility> legendaryActions, specialAbilities;
             public List<Skill> skills;
 
-            public CreatureCharacter()
+            public CreatureCharacter(): base()
             {
                 damageImm = new List<string>();
                 conditionImm = new List<string>();
-                languages = new List<string>();
                 damageRes = new List<string>();
                 damageVulns = new List<string>();
                 senses = new List<string>();

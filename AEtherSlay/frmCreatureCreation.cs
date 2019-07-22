@@ -15,13 +15,14 @@ namespace AEtherSlay
 {
     public partial class frmCreatureCreation : Form
     {
+        List<Catalog.CreatureCharacter> allCreatures;
+        Catalog.CreatureCharacter selectedCreature;
         public frmCreatureCreation()
         {
             InitializeComponent();
+            allCreatures = Program.catalog.creatureList;
+            showCreatureDetails("Aboleth");
         }
-        List<Creature> allCreatures= new List<Creature>();
-        JArray storedCreatures = (JArray)JsonConvert.DeserializeObject<object>(File.ReadAllText(@"..\Monsters.json"));
-        Creature selectedCreature;
 
         public class Attack
         {
@@ -43,22 +44,6 @@ namespace AEtherSlay
             }
         }
 
-        public class SpecialAbility
-        {
-            public string name, desc;
-
-            public SpecialAbility()
-            {
-
-            }
-
-            public SpecialAbility(string name, string desc)
-            {
-                this.name = name;
-                this.desc = desc;
-            }
-        }
-
         public class Skill
         {
             public short? mod;
@@ -71,36 +56,6 @@ namespace AEtherSlay
             }
         }
 
-        public class Creature
-        {
-            public short? hitPoints, armorClass, initiative, passivePerception, rawStr, rawCon, rawDex, rawInt, rawWis, rawCha, strSave, conSave, dexSave, intSave, wisSave, chaSave;
-            public decimal challengeRating;
-            public List<string> damageVulns, damageRes, damageImm, conditionImm, languages, senses;
-            public string name, type, subtype, size, alignment, speed;
-            public List<Attack> attacks;
-            public List<SpecialAbility> legendaryActions, specialAbilities;
-            public List<Skill> skills;
-
-            public Creature()
-            {
-                damageImm = new List<string>();
-                conditionImm= new List<string>();
-                languages = new List<string>();
-                damageRes = new List<string>();
-                damageVulns = new List<string>();
-                senses = new List<string>();
-                attacks = new List<Attack>();
-                legendaryActions = new List<SpecialAbility>();
-                specialAbilities = new List<SpecialAbility>();
-                skills = new List<Skill>();
-            }
-
-            public void setInit()
-            {
-                initiative = (short?)(Program.catalog.rand.Next(1, 20) + Program.catalog.calcModifier(rawWis));
-            }
-        }
-
         public class listBoxMember
         {
             string displayValue, memberValue;
@@ -109,126 +64,6 @@ namespace AEtherSlay
             {
                 this.displayValue = displayValue;
                 this.memberValue = memberValue;
-            }
-        }
-
-        //private class CreatureRAW
-        //{
-        //    short hitPoints, armorClass, challengeRating, initiative, passivePerception, rawStr, rawCon, rawDex, rawInt, rawWis, rawCha, strSave, conSave, dexSave, intSave, wisSave, chaSave;
-        //    string name, type, subtype, size, alignment, speed;
-        //}
-
-        private Skill Catalog.getStatMod(string name, short coreStat, short? mod = 0)
-        {
-            if(mod != 0 && mod != null)
-            {
-                return new Skill(mod, name);
-            } else
-            {
-                return new Skill(coreStat, name);
-            }
-        }
-
-        private string[] splitString(string input)
-        {
-            string[] output = input.Split(",".ToCharArray()[0]);
-            foreach(string thing in output)
-            {
-                thing.Trim();
-            }
-            return output;
-        }
-
-        private void populateCreatureList()
-        {
-            foreach (JToken creature in storedCreatures)
-            {
-                if (creature.SelectToken("license") == null)
-                {
-                    Catalog.CreatureCharacter currentCreature = new Catalog.CreatureCharacter();
-                    currentCreature.name = (string)creature.SelectToken("name");
-                    currentCreature.size = (string)creature.SelectToken("size");
-                    currentCreature.type = (string)creature.SelectToken("type");
-                    currentCreature.subtype = (string)creature.SelectToken("subtype") ?? "NONE";
-                    currentCreature.armorClass = (short)creature.SelectToken("armor_class");
-                    currentCreature.hitPoints = (short)creature.SelectToken("hit_points");
-                    currentCreature.alignment = (string)creature.SelectToken("alignment");
-                    currentCreature.speed = (string)creature.SelectToken("speed") ?? "NONE";
-                    currentCreature.rawStr = (short)creature.SelectToken("strength");
-                    currentCreature.rawCon = (short)creature.SelectToken("constitution");
-                    currentCreature.rawDex = (short)creature.SelectToken("dexterity");
-                    currentCreature.rawInt = (short)creature.SelectToken("intelligence");
-                    currentCreature.rawWis = (short)creature.SelectToken("wisdom");
-                    currentCreature.rawCha = (short)creature.SelectToken("charisma");
-                    currentCreature.strSave = (short?)creature.SelectToken("strength_save") ?? Program.catalog.calcModifier(currentCreature.rawStr);
-                    currentCreature.conSave = (short?)creature.SelectToken("constitution_save") ?? Program.catalog.calcModifier(currentCreature.rawCon);
-                    currentCreature.dexSave = (short?)creature.SelectToken("dexterity_save") ?? Program.catalog.calcModifier(currentCreature.rawDex);
-                    currentCreature.intSave = (short?)creature.SelectToken("intelligence_save") ?? Program.catalog.calcModifier(currentCreature.rawInt);
-                    currentCreature.wisSave = (short?)creature.SelectToken("wisdom_save") ?? Program.catalog.calcModifier(currentCreature.rawWis);
-                    currentCreature.chaSave = (short?)creature.SelectToken("charisma_save") ?? Program.catalog.calcModifier(currentCreature.rawCha);
-                    currentCreature.skills.Add(Catalog.getStatMod("acrobatics", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("acrobatics")));
-                    currentCreature.skills.Add(Catalog.getStatMod("animal_handling", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("animal_handling")));
-                    currentCreature.skills.Add(Catalog.getStatMod("arcana", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("arcana")));
-                    currentCreature.skills.Add(Catalog.getStatMod("athletics", Program.catalog.calcModifier(currentCreature.rawStr), (short?)creature.SelectToken("athletics")));
-                    currentCreature.skills.Add(Catalog.getStatMod("deception", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("deception")));
-                    currentCreature.skills.Add(Catalog.getStatMod("history", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("history")));
-                    currentCreature.skills.Add(Catalog.getStatMod("insight", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("insight")));
-                    currentCreature.skills.Add(Catalog.getStatMod("intimidation", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("intimidation")));
-                    currentCreature.skills.Add(Catalog.getStatMod("investigation", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("investigation")));
-                    currentCreature.skills.Add(Catalog.getStatMod("medicine", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("medicine")));
-                    currentCreature.skills.Add(Catalog.getStatMod("nature", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("nature")));
-                    currentCreature.skills.Add(Catalog.getStatMod("perception", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("perception")));
-                    currentCreature.skills.Add(Catalog.getStatMod("performance", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("performance")));
-                    currentCreature.skills.Add(Catalog.getStatMod("persuasion", Program.catalog.calcModifier(currentCreature.rawCha), (short?)creature.SelectToken("persuasion")));
-                    currentCreature.skills.Add(Catalog.getStatMod("religion", Program.catalog.calcModifier(currentCreature.rawInt), (short?)creature.SelectToken("religion")));
-                    currentCreature.skills.Add(Catalog.getStatMod("sleight_of_hand", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("sleight_of_hand")));
-                    currentCreature.skills.Add(Catalog.getStatMod("stealth", Program.catalog.calcModifier(currentCreature.rawDex), (short?)creature.SelectToken("stealth")));
-                    currentCreature.skills.Add(Catalog.getStatMod("survival", Program.catalog.calcModifier(currentCreature.rawWis), (short?)creature.SelectToken("survival")));
-                    currentCreature.damageVulns.AddRange(splitString((string)creature.SelectToken("damage_vulnerabilities")));
-                    currentCreature.damageRes.AddRange(splitString((string)creature.SelectToken("damage_resistances")));
-                    currentCreature.damageImm.AddRange(splitString((string)creature.SelectToken("damage_immunities")));
-                    currentCreature.conditionImm.AddRange(splitString((string)creature.SelectToken("condition_immunities")));
-                    currentCreature.languages.AddRange(splitString((string)creature.SelectToken("languages")));
-                    currentCreature.senses.AddRange(splitString((string)creature.SelectToken("senses")));
-                    currentCreature.challengeRating = handleCR(creature.SelectToken("challenge_rating").ToString());
-                    currentCreature.passivePerception = (short?)(10 + currentCreature.skills[11].mod);
-                    try
-                    {
-                        foreach (JToken attack in (JArray)creature.SelectToken("actions"))
-                        {
-                            Attack atkToAdd = new Attack();
-                            atkToAdd.name = (string)attack.SelectToken("name");
-                            atkToAdd.desc = (string)attack.SelectToken("desc");
-                            atkToAdd.dice = (string)attack.SelectToken("damage_dice") ?? "NONE";
-                            atkToAdd.atkBonus = (short?)attack.SelectToken("attack_bonus") ?? 0;
-                            atkToAdd.dmgBonus = (short?)attack.SelectToken("damage_bonus") ?? 0;
-                            currentCreature.attacks.Add(atkToAdd);
-                        }
-                    } catch { }
-                    try
-                    {
-                        foreach (JToken legAct in (JArray)creature.SelectToken("legendary_actions"))
-                        {
-                            SpecialAbility action = new SpecialAbility();
-                            action.name = (string)legAct.SelectToken("name");
-                            action.desc = (string)legAct.SelectToken("desc");
-                            currentCreature.legendaryActions.Add(action);
-                        }
-                    }
-                    catch { }
-                    try
-                    {
-                        foreach (JToken abi in (JArray)creature.SelectToken("special_abilities"))
-                        {
-                            SpecialAbility action = new SpecialAbility();
-                            action.name = (string)abi.SelectToken("name");
-                            action.desc = (string)abi.SelectToken("desc");
-                            currentCreature.specialAbilities.Add(action);
-                        }
-                    }
-                    catch { }
-                    allCreatures.Add(currentCreature);
-                }
             }
         }
 
@@ -247,7 +82,7 @@ namespace AEtherSlay
         private void getCreatureNamesByCR(decimal lowerCR, decimal upperCR = 99)
         {
             List<String> validCreatures = new List<string>();
-            foreach (Creature creature in allCreatures)
+            foreach (Catalog.CreatureCharacter creature in allCreatures)
             {
                 if (creature.challengeRating > lowerCR && creature.challengeRating < upperCR)
                 {
@@ -257,9 +92,9 @@ namespace AEtherSlay
             populateDropdown(validCreatures);
         }
 
-        private Creature getCreatureByName(string name)
+        private Catalog.CreatureCharacter getCreatureByName(string name)
         {
-            foreach (Creature creature in allCreatures)
+            foreach (Catalog.CreatureCharacter creature in allCreatures)
             {
                 if (creature.name == name)
                 {
@@ -271,7 +106,7 @@ namespace AEtherSlay
 
         private void showCreatureDetails(string creatureName)
         {
-            Creature creatureToShow = getCreatureByName(creatureName);
+            Catalog.CreatureCharacter creatureToShow = getCreatureByName(creatureName);
             selectedCreature = creatureToShow;
             txtHP.Text = creatureToShow.hitPoints.ToString();
             txtAC.Text = creatureToShow.armorClass.ToString();
@@ -292,7 +127,7 @@ namespace AEtherSlay
             txtWisSave.Text = creatureToShow.wisSave.ToString();
             txtChaSave.Text = creatureToShow.chaSave.ToString();
             lbSkills.Items.Clear();
-            foreach(Skill skill in creatureToShow.skills)
+            foreach(Catalog.Skill skill in creatureToShow.skills)
             {
                 lbSkills.Items.Add($"{skill.mod} - {skill.skill}");
             }
@@ -322,17 +157,17 @@ namespace AEtherSlay
                 lbSenses.Items.Add(sense);
             }
             lbAttacks.Items.Clear();
-            foreach (Attack atk in creatureToShow.attacks)
+            foreach (Catalog.Attack atk in creatureToShow.attacks)
             {
                 lbAttacks.Items.Add(atk.name);
             }
             lbLegAct.Items.Clear();
-            foreach (SpecialAbility legAct in creatureToShow.legendaryActions)
+            foreach (Catalog.SpecialAbility legAct in creatureToShow.legendaryActions)
             {
                 lbLegAct.Items.Add(legAct.name);
             }
             lbAbilities.Items.Clear();
-            foreach (SpecialAbility act in creatureToShow.specialAbilities)
+            foreach (Catalog.SpecialAbility act in creatureToShow.specialAbilities)
             {
                 lbAbilities.Items.Add(act.name);
             }
@@ -349,7 +184,7 @@ namespace AEtherSlay
 
         public void showAttackDetails(string name)
         {
-            foreach(Attack atk in selectedCreature.attacks)
+            foreach(Catalog.Attack atk in selectedCreature.attacks)
             {
                 if(atk.name == name)
                 {
@@ -360,14 +195,14 @@ namespace AEtherSlay
 
         public void showAbilityDetails(string name)
         {
-            foreach (SpecialAbility a in selectedCreature.legendaryActions)
+            foreach (Catalog.SpecialAbility a in selectedCreature.legendaryActions)
             {
                 if (a.name == name)
                 {
                     MessageBox.Show($"Name: {a.name}\n\nDesc. {a.desc}");
                 }
             }
-            foreach (SpecialAbility a in selectedCreature.specialAbilities)
+            foreach (Catalog.SpecialAbility a in selectedCreature.specialAbilities)
             {
                 if (a.name == name)
                 {
@@ -383,12 +218,6 @@ namespace AEtherSlay
             {
                 cbCreatures.Items.Add(cName);
             }
-        }
-
-        private void frmCreatureCreation_Load(object sender, EventArgs e)
-        {
-            populateCreatureList();
-            showCreatureDetails("Aboleth");
         }
 
         private void cbCreatures_SelectedIndexChanged(object sender, EventArgs e)

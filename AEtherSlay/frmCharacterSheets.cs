@@ -218,24 +218,5 @@ namespace AEtherSlay
                 frmArmor.Dispose();
             }
         }
-
-        //private void lbWeapons_MouseHover(object sender, EventArgs e)
-        //{
-        //    Point point = lbWeapons.PointToClient(Cursor.Position);
-        //    int index = lbWeapons.IndexFromPoint(point);
-        //    if (index < 0) return;
-        //    // Sketchy Stack Overflow job
-        //    try
-        //    {
-        //        ToolTip ttWeap = new ToolTip();
-        //        Catalog.Weapon hoveredWeap = Program.catalog.findWeapon((String)lbWeapons.Items[index]);
-        //        ttWeap.BackColor = Color.White;
-        //        ttWeap.ForeColor = Color.Black;
-        //        ttWeap.Show($"This weapon is called {hoveredWeap.name}", this);
-        //    } catch
-        //    {
-        //        Console.WriteLine("Why did you ever think that was a good idea");
-        //    }
-        //}
     }
 }

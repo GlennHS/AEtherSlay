@@ -27,9 +27,9 @@ namespace AEtherSlay
 
         short[] statRolls = new Int16[6],
                 statMods  = new Int16[6];
-        short   speed = 30, ac = 0, health = 0, hitDiceSides = 0;
+        short   ac = 0, health = 0, hitDiceSides = 0;
         bool hasShield = false;
-        string className, raceName, spellcastingStat, alignment;
+        string className, raceName, spellcastingStat, alignment, speed = "30ft.";
         List<Catalog.Armor> possibleArmors = new List<Catalog.Armor>();
 
         List<String> proficiencies = new List<String>()
@@ -289,7 +289,7 @@ namespace AEtherSlay
                     raceName = "Wood Elf";
                     statRolls[2] += 2;
                     statRolls[4] += 1;
-                    speed = 35;
+                    speed = "35ft.";
                     traits.AddRange(new List<String>() { "Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Mask Of The Wild" });
                     proficiencies.AddRange(new List<String> { "Perception", "Longsword", "Shortsword", "Shortbow", "Longbow" });
                     languages.Add("Elvish");
@@ -300,7 +300,7 @@ namespace AEtherSlay
                     statRolls[1] += 2;
                     statRolls[4] += 1;
                     health += 1;
-                    speed = 25;
+                    speed = "25ft.";
                     traits.AddRange( new List<String>() { "Darkvision", "Advantage on Saving Throws [Poison]", "Dwarven Toughness", "Tool Proficiency", "Stonecunning" });
                     proficiencies.AddRange(new List<String>() { "Battleaxe", "Handaxe", "Throwing Hammer", "Warhammer" });
                     languages.Add("Dwarvish");
@@ -311,7 +311,7 @@ namespace AEtherSlay
                     raceName = "Mountain Dwarf";
                     statRolls[1] += 2;
                     statRolls[0] += 2;
-                    speed = 25;
+                    speed = "25ft.";
                     traits.AddRange(new List<String>() { "Darkvision", "Advantage on Saving Throws [Poison]", "Dwarven Toughness", "Tool Proficiency", "Stonecunning" });
                     proficiencies.AddRange(new List<String>() { "Battleaxe", "Handaxe", "Throwing Hammer", "Warhammer" });
                     if (!proficiencies.Contains("Light Armor")) { proficiencies.AddRange(new List<String>() { "Light Armor" }); }
@@ -333,7 +333,7 @@ namespace AEtherSlay
                     raceName = "Lightfoot Halfling";
                     statRolls[2] += 2;
                     statRolls[5] += 1;
-                    speed = 25;
+                    speed = "25ft.";
                     traits.AddRange(new List<String>() { "Lucky", "Brave", "Halfling Nimbleness", "Naturally Stealthy" });
                     languages.Add("Halfling");
                     break;
@@ -342,7 +342,7 @@ namespace AEtherSlay
                     raceName = "Stout Halfling";
                     statRolls[2] += 2;
                     statRolls[1] += 1;
-                    speed = 25;
+                    speed = "25ft.";
                     traits.AddRange(new List<String>() { "Lucky", "Brave", "Halfling Nimbleness", "Poison Resistance", "Advantage Saving Throws Poison" });
                     languages.Add("Halfling");
                     break;
@@ -739,14 +739,10 @@ namespace AEtherSlay
                     }
                     armor = Program.catalog.findArmor((string)cbArmor1.Text);
 
-                    string equipString = "", langString = "", traitString = "", profString = "";
+                    string equipString = "", traitString = "", profString = "";
                     foreach(string equip in equipment)
                     {
                         equipString += $"${equip}\n";
-                    }
-                    foreach (string lang in languages)
-                    {
-                        langString += $"${lang}\n";
                     }
                     foreach (string trait in traits)
                     {
@@ -757,7 +753,7 @@ namespace AEtherSlay
                         profString += $"${prof}\n";
                     }
 
-                    player = new Catalog.PlayerCharacter(name, statRolls, className, raceName, speed, weapons, armor, alignment, equipString, langString, resistances, spellcastingStat, profString, hitDiceSides, savingThrows, traitString);
+                    player = new Catalog.PlayerCharacter(name, statRolls, className, raceName, speed, weapons, armor, alignment, equipString, languages, resistances, spellcastingStat, profString, hitDiceSides, savingThrows, traitString);
                     Program.storage.addCharacterSheet(player);
                     MessageBox.Show("Success!", "Character Created!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } catch

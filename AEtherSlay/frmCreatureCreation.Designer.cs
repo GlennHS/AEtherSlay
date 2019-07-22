@@ -823,7 +823,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCreatureCreation";
             this.Text = "frmCreatureCreation";
-            this.Load += new System.EventHandler(this.frmCreatureCreation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudLowerCR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUpperCR)).EndInit();
             this.ResumeLayout(false);
