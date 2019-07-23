@@ -13,14 +13,15 @@ using Newtonsoft.Json.Linq;
 
 namespace AEtherSlay
 {
-    public partial class frmCreatureCreation : Form
+    public partial class frmCreatureLookup : Form
     {
         List<Catalog.CreatureCharacter> allCreatures;
         Catalog.CreatureCharacter selectedCreature;
-        public frmCreatureCreation()
+        public frmCreatureLookup()
         {
             InitializeComponent();
-            allCreatures = Program.catalog.creatureList;
+            allCreatures = Program.storage.storedCreatures;
+            populateDropdown(allCreatures);
             showCreatureDetails("Aboleth");
         }
 
@@ -65,31 +66,6 @@ namespace AEtherSlay
                 this.displayValue = displayValue;
                 this.memberValue = memberValue;
             }
-        }
-
-        public decimal handleCR(string crString)
-        {
-            decimal outCR;
-            try { outCR = decimal.Parse(crString); }
-            catch
-            {
-                string[] crElems = crString.Split('/');
-                outCR = decimal.Parse(crElems[0]) / decimal.Parse(crElems[1]);
-            };
-            return outCR;
-        }
-
-        private void getCreatureNamesByCR(decimal lowerCR, decimal upperCR = 99)
-        {
-            List<String> validCreatures = new List<string>();
-            foreach (Catalog.CreatureCharacter creature in allCreatures)
-            {
-                if (creature.challengeRating > lowerCR && creature.challengeRating < upperCR)
-                {
-                    validCreatures.Add(creature.name);
-                }
-            }
-            populateDropdown(validCreatures);
         }
 
         private Catalog.CreatureCharacter getCreatureByName(string name)
@@ -211,25 +187,45 @@ namespace AEtherSlay
             }
         }
 
-        public void populateDropdown(List<string> creatureNames)
+        public void populateDropdown(List<Catalog.CreatureCharacter> cList)
         {
             cbCreatures.Items.Clear();
-            foreach(string cName in creatureNames)
+            foreach(Catalog.CreatureCharacter c in cList)
             {
-                cbCreatures.Items.Add(cName);
+                cbCreatures.Items.Add(c.name);
             }
         }
+
+        public void filterCreatures(short minCR, short maxCR, short minAC, short maxAC, List<string> alignmentList, List<string> sizeList)
+        {
+            List<Catalog.CreatureCharacter> validCreatures = new List<Catalog.CreatureCharacter>();
+            foreach(Catalog.CreatureCharacter c in allCreatures)
+            {
+                bool creatureValid = true;
+                if(minCR != -1 && c.challengeRating <= minCR)
+                {
+                    creatureValid = false;
+                }
+                if (maxCR != -1 && c.challengeRating <= minCR)
+                {
+                    creatureValid = false;
+                }
+                if (minAC != -1 && c.challengeRating <= minCR)
+                {
+                    creatureValid = false;
+                }
+                if (maxAC != -1 && c.challengeRating <= minCR)
+                {
+                    creatureValid = false;
+                }
+            }
+        }
+
+        #region GUI interaction
 
         private void cbCreatures_SelectedIndexChanged(object sender, EventArgs e)
         {
             showCreatureDetails(cbCreatures.Text);
-        }
-
-        private void btnFetch_Click(object sender, EventArgs e)
-        {
-            decimal upperBound = nudUpperCR.Value;
-            if(upperBound == 0) { getCreatureNamesByCR(nudLowerCR.Value); }
-            else { getCreatureNamesByCR(nudLowerCR.Value, nudUpperCR.Value); }
         }
 
         private void lbAttacks_SelectedIndexChanged(object sender, EventArgs e)
@@ -249,10 +245,31 @@ namespace AEtherSlay
 
         private void btnRand_Click(object sender, EventArgs e)
         {
-            decimal upperBound = nudUpperCR.Value;
-            if (upperBound == 0) { getCreatureNamesByCR(nudLowerCR.Value); }
-            else { getCreatureNamesByCR(nudLowerCR.Value, nudUpperCR.Value); }
             cbCreatures.SelectedIndex = Program.catalog.rand.Next(1, cbCreatures.Items.Count);
         }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            frmCreatureFilter frmFilter = new frmCreatureFilter();
+            frmFilter.ShowDialog();
+            short minCR, maxCR, minAC, maxAC;
+            List<string> alignmentList, sizeList;
+            if(frmFilter.DialogResult == DialogResult.OK)
+            {
+                minCR = frmFilter.minCR ?? -1;
+                maxCR = frmFilter.maxCR ?? -1;
+                minAC = frmFilter.minAC ?? -1;
+                maxAC = frmFilter.maxAC ?? -1;
+
+                alignmentList = frmFilter.alignments;
+                sizeList = frmFilter.sizes;
+
+                frmFilter.Close();
+
+                filterCreatures(minCR, maxCR, minAC, maxAC, alignmentList, sizeList);
+            }
+        }
+
+        #endregion
     }
 }

@@ -23,13 +23,13 @@ namespace AEtherSlay
         public frmMain()
         {
             InitializeComponent();
+            Program.catalog.catalogInit();
             btnOuts = new object[] { txtD4, txtD6, txtD8, txtD10, txtD12, txtD20, txtD100 };
             foreach (TextBox box in btnOuts)
             {
                 box.Enabled = false;
                 box.Text = "0";
             }
-            lblVersion.Text = "Version Number: " + Program.version;
             pbCoin.Image = Image.FromFile("../Images/DnDCoinH.png");
         }
 
@@ -208,7 +208,7 @@ namespace AEtherSlay
 
         private void BtnCreature_Click(object sender, EventArgs e)
         {
-            Form creatureFrm = new frmCreatureCreation();
+            Form creatureFrm = new frmCreatureLookup();
             creatureFrm.Show();
         }
 

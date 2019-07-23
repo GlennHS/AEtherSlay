@@ -451,16 +451,15 @@ namespace AEtherSlay
             new Spell(9, "Weird", new List<String>() { "wizard"}),
             new Spell(9, "Wish", new List<String>() { "sorcerer", "wizard"})
         };
-        public List<CreatureCharacter> creatureList = new List<CreatureCharacter>();
-        JArray storedCreatures = (JArray)JsonConvert.DeserializeObject<object>(File.ReadAllText(@"..\Monsters.json"));
+        JArray storedCreatures;
         #endregion
 
-        public Catalog()
-        {
-            catalogInit();
-        }
+        public Catalog() { }
 
-        private void catalogInit()
+        /// <summary>
+        ///  MUST BE INVOKED BEFORE USING CATALOG
+        /// </summary>
+        public void catalogInit()
         {
             armorList = lightArmor;
             armorList.AddRange(mediumArmor);
@@ -475,10 +474,12 @@ namespace AEtherSlay
             weapons.AddRange(simple);
             weapons.AddRange(martial);
 
+            storedCreatures = (JArray)JsonConvert.DeserializeObject<object>(File.ReadAllText(@"..\Monsters.json"));
+
             populateCreatureList();
         }
 
-        private void populateCreatureList()
+        public void populateCreatureList()
         {
             foreach (JToken creature in storedCreatures)
             {
@@ -567,7 +568,7 @@ namespace AEtherSlay
                         }
                     }
                     catch { }
-                    creatureList.Add(currentCreature);
+                    Program.storage.storedCreatures.Add(currentCreature);
                 }
             }
         }
@@ -759,6 +760,7 @@ namespace AEtherSlay
                 legendaryActions = new List<SpecialAbility>();
                 specialAbilities = new List<SpecialAbility>();
                 skills = new List<Skill>();
+                languages = new List<string>();
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace AEtherSlay
 {
-    partial class frmCreatureCreation
+    partial class frmCreatureLookup
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreatureLookup));
             this.txtCha = new System.Windows.Forms.TextBox();
             this.txtWis = new System.Windows.Forms.TextBox();
             this.txtInt = new System.Windows.Forms.TextBox();
@@ -84,19 +85,13 @@
             this.label14 = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
             this.lbLanguages = new System.Windows.Forms.ListBox();
-            this.nudLowerCR = new System.Windows.Forms.NumericUpDown();
-            this.nudUpperCR = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.cbCreatures = new System.Windows.Forms.ComboBox();
-            this.btnFetch = new System.Windows.Forms.Button();
             this.lbSenses = new System.Windows.Forms.ListBox();
             this.label16 = new System.Windows.Forms.Label();
             this.lbSkills = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
             this.btnRand = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLowerCR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUpperCR)).BeginInit();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtCha
@@ -329,7 +324,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(563, 12);
+            this.label2.Location = new System.Drawing.Point(563, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 35;
@@ -338,7 +333,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(433, 12);
+            this.label3.Location = new System.Drawing.Point(433, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 36;
@@ -347,7 +342,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(318, 113);
+            this.label6.Location = new System.Drawing.Point(318, 108);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 40;
@@ -358,7 +353,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(558, 318);
+            this.label7.Location = new System.Drawing.Point(558, 311);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 19);
             this.label7.TabIndex = 45;
@@ -367,7 +362,7 @@
             // lblAlignment
             // 
             this.lblAlignment.AutoSize = true;
-            this.lblAlignment.Location = new System.Drawing.Point(558, 338);
+            this.lblAlignment.Location = new System.Drawing.Point(558, 331);
             this.lblAlignment.Name = "lblAlignment";
             this.lblAlignment.Size = new System.Drawing.Size(78, 13);
             this.lblAlignment.TabIndex = 46;
@@ -376,7 +371,7 @@
             // lblVuln
             // 
             this.lblVuln.AutoSize = true;
-            this.lblVuln.Location = new System.Drawing.Point(304, 12);
+            this.lblVuln.Location = new System.Drawing.Point(304, 7);
             this.lblVuln.Name = "lblVuln";
             this.lblVuln.Size = new System.Drawing.Size(71, 13);
             this.lblVuln.TabIndex = 48;
@@ -488,7 +483,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(435, 215);
+            this.label4.Location = new System.Drawing.Point(435, 210);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 60;
@@ -497,7 +492,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(444, 113);
+            this.label5.Location = new System.Drawing.Point(444, 108);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 61;
@@ -506,7 +501,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(544, 113);
+            this.label8.Location = new System.Drawing.Point(544, 108);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 13);
             this.label8.TabIndex = 63;
@@ -515,7 +510,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(288, 215);
+            this.label10.Location = new System.Drawing.Point(288, 210);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(103, 13);
             this.label10.TabIndex = 68;
@@ -524,7 +519,7 @@
             // lbConImm
             // 
             this.lbConImm.FormattingEnabled = true;
-            this.lbConImm.Location = new System.Drawing.Point(279, 231);
+            this.lbConImm.Location = new System.Drawing.Point(279, 226);
             this.lbConImm.Name = "lbConImm";
             this.lbConImm.Size = new System.Drawing.Size(120, 82);
             this.lbConImm.TabIndex = 69;
@@ -532,7 +527,7 @@
             // lbImm
             // 
             this.lbImm.FormattingEnabled = true;
-            this.lbImm.Location = new System.Drawing.Point(531, 28);
+            this.lbImm.Location = new System.Drawing.Point(531, 23);
             this.lbImm.Name = "lbImm";
             this.lbImm.Size = new System.Drawing.Size(120, 82);
             this.lbImm.TabIndex = 70;
@@ -540,7 +535,7 @@
             // lbRes
             // 
             this.lbRes.FormattingEnabled = true;
-            this.lbRes.Location = new System.Drawing.Point(405, 28);
+            this.lbRes.Location = new System.Drawing.Point(405, 23);
             this.lbRes.Name = "lbRes";
             this.lbRes.Size = new System.Drawing.Size(120, 82);
             this.lbRes.TabIndex = 71;
@@ -548,7 +543,7 @@
             // lbVuln
             // 
             this.lbVuln.FormattingEnabled = true;
-            this.lbVuln.Location = new System.Drawing.Point(279, 28);
+            this.lbVuln.Location = new System.Drawing.Point(279, 23);
             this.lbVuln.Name = "lbVuln";
             this.lbVuln.Size = new System.Drawing.Size(120, 82);
             this.lbVuln.TabIndex = 72;
@@ -556,7 +551,7 @@
             // lbAttacks
             // 
             this.lbAttacks.FormattingEnabled = true;
-            this.lbAttacks.Location = new System.Drawing.Point(279, 129);
+            this.lbAttacks.Location = new System.Drawing.Point(279, 124);
             this.lbAttacks.Name = "lbAttacks";
             this.lbAttacks.Size = new System.Drawing.Size(120, 82);
             this.lbAttacks.TabIndex = 76;
@@ -565,7 +560,7 @@
             // lbAbilities
             // 
             this.lbAbilities.FormattingEnabled = true;
-            this.lbAbilities.Location = new System.Drawing.Point(405, 129);
+            this.lbAbilities.Location = new System.Drawing.Point(405, 124);
             this.lbAbilities.Name = "lbAbilities";
             this.lbAbilities.Size = new System.Drawing.Size(120, 82);
             this.lbAbilities.TabIndex = 75;
@@ -574,7 +569,7 @@
             // lbLegAct
             // 
             this.lbLegAct.FormattingEnabled = true;
-            this.lbLegAct.Location = new System.Drawing.Point(531, 129);
+            this.lbLegAct.Location = new System.Drawing.Point(531, 124);
             this.lbLegAct.Name = "lbLegAct";
             this.lbLegAct.Size = new System.Drawing.Size(120, 82);
             this.lbLegAct.TabIndex = 74;
@@ -583,7 +578,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(278, 338);
+            this.lblName.Location = new System.Drawing.Point(278, 331);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(53, 13);
             this.lblName.TabIndex = 78;
@@ -594,7 +589,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(277, 318);
+            this.label12.Location = new System.Drawing.Point(277, 311);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 19);
             this.label12.TabIndex = 79;
@@ -605,7 +600,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(379, 318);
+            this.label13.Location = new System.Drawing.Point(379, 311);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 19);
             this.label13.TabIndex = 81;
@@ -614,7 +609,7 @@
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(379, 338);
+            this.lblType.Location = new System.Drawing.Point(379, 331);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(53, 13);
             this.lblType.TabIndex = 80;
@@ -625,7 +620,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(481, 318);
+            this.label14.Location = new System.Drawing.Point(481, 311);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(36, 19);
             this.label14.TabIndex = 83;
@@ -634,7 +629,7 @@
             // lblSize
             // 
             this.lblSize.AutoSize = true;
-            this.lblSize.Location = new System.Drawing.Point(481, 338);
+            this.lblSize.Location = new System.Drawing.Point(481, 331);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(53, 13);
             this.lblSize.TabIndex = 82;
@@ -643,68 +638,25 @@
             // lbLanguages
             // 
             this.lbLanguages.FormattingEnabled = true;
-            this.lbLanguages.Location = new System.Drawing.Point(405, 231);
+            this.lbLanguages.Location = new System.Drawing.Point(405, 226);
             this.lbLanguages.Name = "lbLanguages";
             this.lbLanguages.Size = new System.Drawing.Size(120, 82);
             this.lbLanguages.TabIndex = 84;
-            // 
-            // nudLowerCR
-            // 
-            this.nudLowerCR.Location = new System.Drawing.Point(171, 360);
-            this.nudLowerCR.Name = "nudLowerCR";
-            this.nudLowerCR.Size = new System.Drawing.Size(32, 20);
-            this.nudLowerCR.TabIndex = 85;
-            // 
-            // nudUpperCR
-            // 
-            this.nudUpperCR.Location = new System.Drawing.Point(248, 360);
-            this.nudUpperCR.Name = "nudUpperCR";
-            this.nudUpperCR.Size = new System.Drawing.Size(30, 20);
-            this.nudUpperCR.TabIndex = 86;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 364);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(158, 13);
-            this.label9.TabIndex = 87;
-            this.label9.Text = "I want all creatures between CR";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(205, 364);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(43, 13);
-            this.label15.TabIndex = 88;
-            this.label15.Text = "and CR";
             // 
             // cbCreatures
             // 
             this.cbCreatures.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCreatures.FormattingEnabled = true;
-            this.cbCreatures.Location = new System.Drawing.Point(492, 360);
+            this.cbCreatures.Location = new System.Drawing.Point(153, 323);
             this.cbCreatures.Name = "cbCreatures";
-            this.cbCreatures.Size = new System.Drawing.Size(133, 21);
+            this.cbCreatures.Size = new System.Drawing.Size(119, 21);
             this.cbCreatures.TabIndex = 89;
             this.cbCreatures.SelectedIndexChanged += new System.EventHandler(this.cbCreatures_SelectedIndexChanged);
-            // 
-            // btnFetch
-            // 
-            this.btnFetch.ForeColor = System.Drawing.Color.Black;
-            this.btnFetch.Location = new System.Drawing.Point(297, 359);
-            this.btnFetch.Name = "btnFetch";
-            this.btnFetch.Size = new System.Drawing.Size(75, 23);
-            this.btnFetch.TabIndex = 90;
-            this.btnFetch.Text = "FETCH";
-            this.btnFetch.UseVisualStyleBackColor = true;
-            this.btnFetch.Click += new System.EventHandler(this.btnFetch_Click);
             // 
             // lbSenses
             // 
             this.lbSenses.FormattingEnabled = true;
-            this.lbSenses.Location = new System.Drawing.Point(531, 231);
+            this.lbSenses.Location = new System.Drawing.Point(531, 226);
             this.lbSenses.Name = "lbSenses";
             this.lbSenses.Size = new System.Drawing.Size(120, 82);
             this.lbSenses.TabIndex = 92;
@@ -712,7 +664,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(570, 215);
+            this.label16.Location = new System.Drawing.Point(570, 210);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(42, 13);
             this.label16.TabIndex = 91;
@@ -721,15 +673,15 @@
             // lbSkills
             // 
             this.lbSkills.FormattingEnabled = true;
-            this.lbSkills.Location = new System.Drawing.Point(153, 28);
+            this.lbSkills.Location = new System.Drawing.Point(153, 22);
             this.lbSkills.Name = "lbSkills";
-            this.lbSkills.Size = new System.Drawing.Size(120, 316);
+            this.lbSkills.Size = new System.Drawing.Size(120, 238);
             this.lbSkills.TabIndex = 94;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(198, 13);
+            this.label17.Location = new System.Drawing.Point(198, 7);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(31, 13);
             this.label17.TabIndex = 93;
@@ -738,7 +690,7 @@
             // btnRand
             // 
             this.btnRand.ForeColor = System.Drawing.Color.Black;
-            this.btnRand.Location = new System.Drawing.Point(381, 359);
+            this.btnRand.Location = new System.Drawing.Point(177, 294);
             this.btnRand.Name = "btnRand";
             this.btnRand.Size = new System.Drawing.Size(75, 23);
             this.btnRand.TabIndex = 95;
@@ -746,23 +698,30 @@
             this.btnRand.UseVisualStyleBackColor = true;
             this.btnRand.Click += new System.EventHandler(this.btnRand_Click);
             // 
-            // frmCreatureCreation
+            // btnFilter
+            // 
+            this.btnFilter.ForeColor = System.Drawing.Color.Black;
+            this.btnFilter.Location = new System.Drawing.Point(177, 265);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnFilter.TabIndex = 96;
+            this.btnFilter.Text = "FILTER";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // frmCreatureLookup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(674, 392);
+            this.ClientSize = new System.Drawing.Size(674, 352);
+            this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.btnRand);
             this.Controls.Add(this.lbSkills);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.lbSenses);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.btnFetch);
             this.Controls.Add(this.cbCreatures);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.nudUpperCR);
-            this.Controls.Add(this.nudLowerCR);
             this.Controls.Add(this.lbLanguages);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblSize);
@@ -820,11 +779,10 @@
             this.Controls.Add(this.lblInt);
             this.Controls.Add(this.lblStr);
             this.ForeColor = System.Drawing.Color.White;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmCreatureCreation";
+            this.Name = "frmCreatureLookup";
             this.Text = "frmCreatureCreation";
-            ((System.ComponentModel.ISupportInitialize)(this.nudLowerCR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUpperCR)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -888,16 +846,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblSize;
         private System.Windows.Forms.ListBox lbLanguages;
-        private System.Windows.Forms.NumericUpDown nudLowerCR;
-        private System.Windows.Forms.NumericUpDown nudUpperCR;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cbCreatures;
-        private System.Windows.Forms.Button btnFetch;
         private System.Windows.Forms.ListBox lbSenses;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox lbSkills;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnRand;
+        private System.Windows.Forms.Button btnFilter;
     }
 }

@@ -431,7 +431,6 @@ namespace AEtherSlay
             #region Add Class Particulars
 
             List<String> possiblePacks = new List<string>();
-            Catalog.Weapon weapToAdd;
             switch (classNum)
             {
                 case 0: //BARBARIAN

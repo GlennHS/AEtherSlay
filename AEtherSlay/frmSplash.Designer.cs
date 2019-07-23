@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSplash));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
@@ -36,48 +37,49 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lucida Console", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Turquoise;
-            this.label1.Location = new System.Drawing.Point(218, 79);
+            this.label1.Font = new System.Drawing.Font("Viner Hand ITC", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Cyan;
+            this.label1.Location = new System.Drawing.Point(105, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(358, 60);
+            this.label1.Size = new System.Drawing.Size(587, 155);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Ætherslay";
+            this.label1.Text = "ÆtherSlay";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(110, 188);
+            this.label2.Font = new System.Drawing.Font("Lucida Calligraphy", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 268);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(574, 39);
+            this.label2.Size = new System.Drawing.Size(792, 62);
             this.label2.TabIndex = 1;
-            this.label2.Text = "The Dungeon Master\'s Best Friend";
+            this.label2.Text = "The Dungeon Master\'s Toolkit";
             // 
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.ForeColor = System.Drawing.Color.Gray;
-            this.lblVersion.Location = new System.Drawing.Point(295, 320);
-            this.lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersion.ForeColor = System.Drawing.Color.Silver;
+            this.lblVersion.Location = new System.Drawing.Point(565, 421);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(114, 17);
-            this.lblVersion.TabIndex = 10;
+            this.lblVersion.Size = new System.Drawing.Size(127, 20);
+            this.lblVersion.TabIndex = 2;
             this.lblVersion.Text = "Version Number:";
             // 
             // frmSplash
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(800, 346);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.White;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSplash";
             this.Text = "frmSplash";
+            this.Load += new System.EventHandler(this.frmSplash_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

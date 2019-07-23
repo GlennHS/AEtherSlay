@@ -99,11 +99,17 @@
     <Compile Include="frmCharacterSheets.Designer.cs">
       <DependentUpon>frmCharacterSheets.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCreatureCreation.cs">
+    <Compile Include="frmCreatureLookup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCreatureCreation.Designer.cs">
-      <DependentUpon>frmCreatureCreation.cs</DependentUpon>
+    <Compile Include="frmCreatureLookup.Designer.cs">
+      <DependentUpon>frmCreatureLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCreatureFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreatureFilter.Designer.cs">
+      <DependentUpon>frmCreatureFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -117,6 +123,12 @@
     <Compile Include="frmNewArmor.Designer.cs">
       <DependentUpon>frmNewArmor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage.cs" />
@@ -129,14 +141,20 @@
     <EmbeddedResource Include="frmCharacterSheets.resx">
       <DependentUpon>frmCharacterSheets.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCreatureCreation.resx">
-      <DependentUpon>frmCreatureCreation.cs</DependentUpon>
+    <EmbeddedResource Include="frmCreatureLookup.resx">
+      <DependentUpon>frmCreatureLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCreatureFilter.resx">
+      <DependentUpon>frmCreatureFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewArmor.resx">
       <DependentUpon>frmNewArmor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

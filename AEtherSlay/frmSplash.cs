@@ -15,7 +15,14 @@ namespace AEtherSlay
         public frmSplash()
         {
             InitializeComponent();
-            lblVersion.Text = "Version Number: " + Program.version;
+            lblVersion.Text = $"Version Number: ${Program.version}";
+        }
+
+        private void frmSplash_Load(object sender, EventArgs e)
+        {
+            Program.catalog.catalogInit();
+            frmMain mainForm = new frmMain();
+            mainForm.ShowDialog();
         }
     }
 }

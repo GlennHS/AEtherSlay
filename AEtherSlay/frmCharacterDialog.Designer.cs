@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCharacterDialog));
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblClass = new System.Windows.Forms.Label();
@@ -42,10 +43,9 @@
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(89, 15);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbCategory.Location = new System.Drawing.Point(67, 12);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(160, 24);
+            this.cmbCategory.Size = new System.Drawing.Size(121, 21);
             this.cmbCategory.TabIndex = 0;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
@@ -53,10 +53,9 @@
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblCategory.Location = new System.Drawing.Point(16, 18);
-            this.lblCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategory.Location = new System.Drawing.Point(12, 15);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(65, 17);
+            this.lblCategory.Size = new System.Drawing.Size(49, 13);
             this.lblCategory.TabIndex = 1;
             this.lblCategory.Text = "Category";
             // 
@@ -64,10 +63,9 @@
             // 
             this.lblClass.AutoSize = true;
             this.lblClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblClass.Location = new System.Drawing.Point(16, 52);
-            this.lblClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblClass.Location = new System.Drawing.Point(12, 42);
             this.lblClass.Name = "lblClass";
-            this.lblClass.Size = new System.Drawing.Size(42, 17);
+            this.lblClass.Size = new System.Drawing.Size(32, 13);
             this.lblClass.TabIndex = 3;
             this.lblClass.Text = "Class";
             // 
@@ -75,10 +73,9 @@
             // 
             this.cmbClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClass.FormattingEnabled = true;
-            this.cmbClass.Location = new System.Drawing.Point(89, 48);
-            this.cmbClass.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbClass.Location = new System.Drawing.Point(67, 39);
             this.cmbClass.Name = "cmbClass";
-            this.cmbClass.Size = new System.Drawing.Size(160, 24);
+            this.cmbClass.Size = new System.Drawing.Size(121, 21);
             this.cmbClass.TabIndex = 2;
             this.cmbClass.SelectedIndexChanged += new System.EventHandler(this.cmbClass_SelectedIndexChanged);
             // 
@@ -86,10 +83,9 @@
             // 
             this.lblRace.AutoSize = true;
             this.lblRace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblRace.Location = new System.Drawing.Point(16, 85);
-            this.lblRace.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRace.Location = new System.Drawing.Point(12, 69);
             this.lblRace.Name = "lblRace";
-            this.lblRace.Size = new System.Drawing.Size(41, 17);
+            this.lblRace.Size = new System.Drawing.Size(33, 13);
             this.lblRace.TabIndex = 5;
             this.lblRace.Text = "Race";
             // 
@@ -97,20 +93,18 @@
             // 
             this.cmbRace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRace.FormattingEnabled = true;
-            this.cmbRace.Location = new System.Drawing.Point(89, 81);
-            this.cmbRace.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbRace.Location = new System.Drawing.Point(67, 66);
             this.cmbRace.Name = "cmbRace";
-            this.cmbRace.Size = new System.Drawing.Size(160, 24);
+            this.cmbRace.Size = new System.Drawing.Size(121, 21);
             this.cmbRace.TabIndex = 4;
             // 
             // btnGo
             // 
             this.btnGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
             this.btnGo.ForeColor = System.Drawing.Color.Black;
-            this.btnGo.Location = new System.Drawing.Point(260, 16);
-            this.btnGo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGo.Location = new System.Drawing.Point(195, 13);
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(115, 121);
+            this.btnGo.Size = new System.Drawing.Size(86, 98);
             this.btnGo.TabIndex = 6;
             this.btnGo.Text = "GO";
             this.btnGo.UseVisualStyleBackColor = true;
@@ -121,20 +115,19 @@
             this.chkIRA.AutoSize = true;
             this.chkIRA.Checked = true;
             this.chkIRA.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkIRA.Location = new System.Drawing.Point(27, 116);
-            this.chkIRA.Margin = new System.Windows.Forms.Padding(4);
+            this.chkIRA.Location = new System.Drawing.Point(20, 94);
             this.chkIRA.Name = "chkIRA";
-            this.chkIRA.Size = new System.Drawing.Size(220, 21);
+            this.chkIRA.Size = new System.Drawing.Size(169, 17);
             this.chkIRA.TabIndex = 7;
             this.chkIRA.Text = "Use Intelligent Roll Allocation?";
             this.chkIRA.UseVisualStyleBackColor = true;
             // 
             // frmCharacterDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(391, 151);
+            this.ClientSize = new System.Drawing.Size(293, 123);
             this.Controls.Add(this.chkIRA);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.lblRace);
@@ -144,7 +137,7 @@
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.cmbCategory);
             this.ForeColor = System.Drawing.Color.White;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCharacterDialog";
             this.Text = "frmCharacterDialog";
             this.Load += new System.EventHandler(this.FrmCharacterDialog_Load);

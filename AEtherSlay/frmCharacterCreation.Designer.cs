@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCharacterCreation));
             this.grpCoreStats = new System.Windows.Forms.GroupBox();
             this.txtChaMod = new System.Windows.Forms.TextBox();
             this.txtWisMod = new System.Windows.Forms.TextBox();
@@ -623,7 +624,7 @@
             // btnAddCharbtnAddChar
             // 
             this.btnAddCharbtnAddChar.Location = new System.Drawing.Point(12, 388);
-            this.btnAddCharbtnAddChar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddCharbtnAddChar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddCharbtnAddChar.Name = "btnAddCharbtnAddChar";
             this.btnAddCharbtnAddChar.Size = new System.Drawing.Size(158, 25);
             this.btnAddCharbtnAddChar.TabIndex = 42;
@@ -634,7 +635,7 @@
             // btnRegenerate
             // 
             this.btnRegenerate.Location = new System.Drawing.Point(12, 418);
-            this.btnRegenerate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegenerate.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegenerate.Name = "btnRegenerate";
             this.btnRegenerate.Size = new System.Drawing.Size(158, 25);
             this.btnRegenerate.TabIndex = 43;
@@ -645,7 +646,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(69, 363);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(101, 20);
             this.txtName.TabIndex = 44;
@@ -678,6 +679,7 @@
             this.Controls.Add(this.rtbLanguages);
             this.Controls.Add(this.rtbTraits);
             this.Controls.Add(this.grpCoreStats);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCharacterCreation";
             this.Text = "Random Character Creation";
             this.grpCoreStats.ResumeLayout(false);

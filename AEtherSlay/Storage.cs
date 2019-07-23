@@ -9,12 +9,12 @@ namespace AEtherSlay
     class Storage
     {
         private List<Catalog.PlayerCharacter> storedCharacterSheets;
-        // private List<Catalog.PlayerCharacter> storedEnemySheets;
+        public List<Catalog.CreatureCharacter> storedCreatures;
 
         public Storage()
         {
             storedCharacterSheets = new List<Catalog.PlayerCharacter>();
-            //storedEnemySheets = new List<Catalog.EnemyCharacter>();
+            storedCreatures = new List<Catalog.CreatureCharacter>();
         }
 
         public void addCharacterSheet(Catalog.PlayerCharacter charToAdd)
@@ -22,10 +22,11 @@ namespace AEtherSlay
             storedCharacterSheets.Add(charToAdd);
         }
 
-        public Catalog.PlayerCharacter retrieveCharacterSheet(String characterName)
+        public Catalog.PlayerCharacter retrieveCharacterSheet(string characterName)
         {
-            foreach(Catalog.PlayerCharacter character in storedCharacterSheets) {
-                if(character.name == characterName)
+            foreach (Catalog.PlayerCharacter character in storedCharacterSheets)
+            {
+                if (character.name == characterName)
                 {
                     return character;
                 }

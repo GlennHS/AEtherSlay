@@ -38,7 +38,6 @@ C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.applica
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.exe
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.pdb
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCreatureCreation.resources
-C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCreatureCreation.resources
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCharacterSheets.resources
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCharacterSheets.resources
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCharacterCreation.resources
@@ -52,3 +51,6 @@ C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmNewA
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Debug\Newtonsoft.Json.dll
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Debug\Newtonsoft.Json.xml
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.csproj.CopyComplete
+C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmSplash.resources
+C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCreatureLookup.resources
+C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCreatureFilter.resources
