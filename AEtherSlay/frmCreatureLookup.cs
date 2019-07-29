@@ -7,70 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace AEtherSlay
 {
     public partial class frmCreatureLookup : Form
     {
-        List<Catalog.CreatureCharacter> allCreatures;
         Catalog.CreatureCharacter selectedCreature;
         public frmCreatureLookup()
         {
             InitializeComponent();
-            allCreatures = Program.storage.storedCreatures;
-            populateDropdown(allCreatures);
-            showCreatureDetails("Aboleth");
-        }
-
-        public class Attack
-        {
-            public string name, desc, dice;
-            public short? atkBonus, dmgBonus;
-
-            public Attack()
-            {
-
-            }
-
-            public Attack(string name, string desc, string dice, short atkBonus, short dmgBonus)
-            {
-                this.name = name;
-                this.desc = desc;
-                this.dice = dice;
-                this.atkBonus = atkBonus;
-                this.dmgBonus = dmgBonus;
-            }
-        }
-
-        public class Skill
-        {
-            public short? mod;
-            public string skill;
-
-            public Skill(short? mod, string skill)
-            {
-                this.mod = mod;
-                this.skill = skill;
-            }
-        }
-
-        public class listBoxMember
-        {
-            string displayValue, memberValue;
-
-            public listBoxMember(string displayValue, string memberValue)
-            {
-                this.displayValue = displayValue;
-                this.memberValue = memberValue;
-            }
+            populateDropdown(Program.storage.storedCreatures);
+            cbCreatures.SelectedIndex = 0;
         }
 
         private Catalog.CreatureCharacter getCreatureByName(string name)
         {
-            foreach (Catalog.CreatureCharacter creature in allCreatures)
+            foreach (Catalog.CreatureCharacter creature in Program.storage.storedCreatures)
             {
                 if (creature.name == name)
                 {
@@ -199,26 +151,53 @@ namespace AEtherSlay
         public void filterCreatures(short minCR, short maxCR, short minAC, short maxAC, List<string> alignmentList, List<string> sizeList)
         {
             List<Catalog.CreatureCharacter> validCreatures = new List<Catalog.CreatureCharacter>();
-            foreach(Catalog.CreatureCharacter c in allCreatures)
+            foreach(Catalog.CreatureCharacter c in Program.storage.storedCreatures)
             {
                 bool creatureValid = true;
-                if(minCR != -1 && c.challengeRating <= minCR)
+                if(minCR >= -1 && c.challengeRating <= minCR)
                 {
                     creatureValid = false;
                 }
-                if (maxCR != -1 && c.challengeRating <= minCR)
+                if (maxCR >= 0 && c.challengeRating >= maxCR)
                 {
                     creatureValid = false;
                 }
-                if (minAC != -1 && c.challengeRating <= minCR)
+                if (minAC >= -1 && c.challengeRating <= minAC)
                 {
                     creatureValid = false;
                 }
-                if (maxAC != -1 && c.challengeRating <= minCR)
+                if (maxAC > 0 && c.challengeRating >= maxAC)
                 {
                     creatureValid = false;
+                }
+                string shortenedAlignment = "thisstringwillautofail";
+                switch(c.alignment)
+                {
+                    case "lawful good":     { shortenedAlignment = "LG";  break; }
+                    case "lawful neutral":  { shortenedAlignment = "LN"; break; }
+                    case "lawful evil":     { shortenedAlignment = "LE"; break; }
+                    case "neutral good":    { shortenedAlignment = "NG"; break; }
+                    case "true neutral":    { shortenedAlignment = "N"; break; }
+                    case "neutral evil":    { shortenedAlignment = "NE"; break; }
+                    case "chaotic good":    { shortenedAlignment = "CG"; break; }
+                    case "chaotic neutral": { shortenedAlignment = "CN"; break; }
+                    case "chaotic evil":    { shortenedAlignment = "CE"; break; }
+                    default: { break; }
+                }
+                if(!alignmentList.Contains(shortenedAlignment))
+                {
+                    creatureValid = false;
+                }
+                if (!sizeList.Contains(c.size))
+                {
+                    creatureValid = false;
+                }
+                if (creatureValid)
+                {
+                    validCreatures.Add(c);
                 }
             }
+            populateDropdown(validCreatures);
         }
 
         #region GUI interaction
