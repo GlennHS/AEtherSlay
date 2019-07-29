@@ -475,8 +475,6 @@ namespace AEtherSlay
             weapons.AddRange(martial);
 
             storedCreatures = (JArray)JsonConvert.DeserializeObject<object>(File.ReadAllText(@"..\Monsters.json"));
-
-            populateCreatureList();
         }
 
         public void populateCreatureList()

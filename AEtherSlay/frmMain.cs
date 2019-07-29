@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AEtherSlay
@@ -13,17 +14,21 @@ namespace AEtherSlay
     public partial class frmMain : Form
     {
         Random   rand = new Random();
-        bool  allAtOnceRollStyle = false;
+        bool     allAtOnceRollStyle = false;
         short[]  diceQuantityArray = new short[7];
-        Object[] btnOuts = new TextBox[7];
-        bool  coinInUse = false;
-        Image    imgHeads = Image.FromFile("../Images/DnDCoinH.png");
-        Image    imgTails = Image.FromFile("../Images/DnDCoinT.png");
+        object[] btnOuts = new TextBox[7];
+        bool coinInUse = false;
+        Image    imgHeads = Image.FromFile("../Images/DnDCoinH.png")
+                ,imgTails = Image.FromFile("../Images/DnDCoinT.png");
+        Thread   getCreatureList;
 
         public frmMain()
         {
             InitializeComponent();
             Program.catalog.catalogInit();
+            getCreatureList = new Thread(new ThreadStart(Program.catalog.populateCreatureList));
+            getCreatureList.Priority = ThreadPriority.Lowest;
+            getCreatureList.Start();
             btnOuts = new object[] { txtD4, txtD6, txtD8, txtD10, txtD12, txtD20, txtD100 };
             foreach (TextBox box in btnOuts)
             {
@@ -141,11 +146,11 @@ namespace AEtherSlay
         {
             if (allAtOnceRollStyle)
             {
-                String  outString = "Your Rolls Were As Follows:\n";
-                Int16[] diceSides = new short[] { 4, 6, 8, 10, 12, 20, 100 };
-                Int16   rolled = 0;
-                Int16   total = 0;
-                Int16   i = 0;
+                string  outString = "Your Rolls Were As Follows:\n";
+                short[] diceSides = new short[] { 4, 6, 8, 10, 12, 20, 100 };
+                short rolled = 0
+                      ,total = 0
+                      ,i = 0;
 
                 foreach (TextBox box in btnOuts)
                 {
@@ -154,7 +159,7 @@ namespace AEtherSlay
                 }
                 for (i = 0; i < 7; i++)
                 {
-                    for (Int16 numDice = 0; numDice < diceQuantityArray[i]; numDice++)
+                    for (short numDice = 0; numDice < diceQuantityArray[i]; numDice++)
                     {
                         rolled = Convert.ToInt16(rand.Next(1, diceSides[i] + 1));
                         total += rolled;
@@ -175,11 +180,11 @@ namespace AEtherSlay
         private void pbCoin_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            String result = "Coin Flip Failed.\nPlease contact the developer at glenniumhs@gmail.com";
+            string result = "Tails!";
             if(!coinInUse) {
                 coinInUse = true;
 
-                for (Int16 i = 0; i < 5; i++)
+                for (short i = 0; i < 5; i++)
                 {
                     if (rand.Next(1, 3) == 2)
                     {
@@ -192,7 +197,7 @@ namespace AEtherSlay
                         result = "Tails!";
                     }
                     Application.DoEvents();
-                    System.Threading.Thread.Sleep(300);
+                    Thread.Sleep(300);
                 }
                 coinInUse = false;
                 Cursor.Current = Cursors.Default;
@@ -208,8 +213,14 @@ namespace AEtherSlay
 
         private void BtnCreature_Click(object sender, EventArgs e)
         {
-            Form creatureFrm = new frmCreatureLookup();
-            creatureFrm.Show();
+            if(!getCreatureList.IsAlive)
+            {
+                Form creatureFrm = new frmCreatureLookup();
+                creatureFrm.Show();
+            } else
+            {
+                MessageBox.Show("Please Wait...", "Loading", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void BtnCharSheets_Click(object sender, EventArgs e)
