@@ -17,6 +17,8 @@ namespace AEtherSlay
         public List<string> alignments = new List<string>()
                            ,sizes = new List<string>();
 
+        public string searchTerm = "";
+
         public frmCreatureFilter()
         {
             InitializeComponent();
@@ -42,6 +44,7 @@ namespace AEtherSlay
                 sizes.Add(item);
             }
             if(sizes.Count == 0) { sizes = new List<string>() { "Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan" }; }
+            searchTerm = txtSearch.Text;
             DialogResult = DialogResult.OK;
         }
     }

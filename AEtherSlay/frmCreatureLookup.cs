@@ -148,7 +148,7 @@ namespace AEtherSlay
             }
         }
 
-        public void filterCreatures(short minCR, short maxCR, short minAC, short maxAC, List<string> alignmentList, List<string> sizeList)
+        public void filterCreatures(short minCR, short maxCR, short minAC, short maxAC, List<string> alignmentList, List<string> sizeList, string searchTerm)
         {
             List<Catalog.CreatureCharacter> validCreatures = new List<Catalog.CreatureCharacter>();
             foreach(Catalog.CreatureCharacter c in Program.storage.storedCreatures)
@@ -192,6 +192,13 @@ namespace AEtherSlay
                 {
                     creatureValid = false;
                 }
+                if (searchTerm != "")
+                {
+                    if (!(c.name.ToLower().Contains(searchTerm.ToLower())))
+                    {
+                        creatureValid = false;
+                    }
+                }
                 if (creatureValid)
                 {
                     validCreatures.Add(c);
@@ -233,6 +240,7 @@ namespace AEtherSlay
             frmFilter.ShowDialog();
             short minCR, maxCR, minAC, maxAC;
             List<string> alignmentList, sizeList;
+            string searchTerm;
             if(frmFilter.DialogResult == DialogResult.OK)
             {
                 minCR = frmFilter.minCR ?? -1;
@@ -242,10 +250,11 @@ namespace AEtherSlay
 
                 alignmentList = frmFilter.alignments;
                 sizeList = frmFilter.sizes;
+                searchTerm = frmFilter.searchTerm;
 
                 frmFilter.Close();
 
-                filterCreatures(minCR, maxCR, minAC, maxAC, alignmentList, sizeList);
+                filterCreatures(minCR, maxCR, minAC, maxAC, alignmentList, sizeList, searchTerm);
             }
         }
 

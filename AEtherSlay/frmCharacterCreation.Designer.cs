@@ -118,7 +118,7 @@
             this.txtChaMod.Enabled = false;
             this.txtChaMod.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChaMod.ForeColor = System.Drawing.Color.Black;
-            this.txtChaMod.Location = new System.Drawing.Point(104, 325);
+            this.txtChaMod.Location = new System.Drawing.Point(104, 316);
             this.txtChaMod.Name = "txtChaMod";
             this.txtChaMod.Size = new System.Drawing.Size(37, 26);
             this.txtChaMod.TabIndex = 17;
@@ -129,7 +129,7 @@
             this.txtWisMod.Enabled = false;
             this.txtWisMod.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWisMod.ForeColor = System.Drawing.Color.Black;
-            this.txtWisMod.Location = new System.Drawing.Point(104, 265);
+            this.txtWisMod.Location = new System.Drawing.Point(104, 258);
             this.txtWisMod.Name = "txtWisMod";
             this.txtWisMod.Size = new System.Drawing.Size(37, 26);
             this.txtWisMod.TabIndex = 16;
@@ -140,7 +140,7 @@
             this.txtIntMod.Enabled = false;
             this.txtIntMod.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIntMod.ForeColor = System.Drawing.Color.Black;
-            this.txtIntMod.Location = new System.Drawing.Point(104, 205);
+            this.txtIntMod.Location = new System.Drawing.Point(104, 200);
             this.txtIntMod.Name = "txtIntMod";
             this.txtIntMod.Size = new System.Drawing.Size(37, 26);
             this.txtIntMod.TabIndex = 15;
@@ -151,7 +151,7 @@
             this.txtDexMod.Enabled = false;
             this.txtDexMod.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDexMod.ForeColor = System.Drawing.Color.Black;
-            this.txtDexMod.Location = new System.Drawing.Point(104, 145);
+            this.txtDexMod.Location = new System.Drawing.Point(104, 84);
             this.txtDexMod.Name = "txtDexMod";
             this.txtDexMod.Size = new System.Drawing.Size(37, 26);
             this.txtDexMod.TabIndex = 14;
@@ -162,7 +162,7 @@
             this.txtConMod.Enabled = false;
             this.txtConMod.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConMod.ForeColor = System.Drawing.Color.Black;
-            this.txtConMod.Location = new System.Drawing.Point(104, 84);
+            this.txtConMod.Location = new System.Drawing.Point(104, 142);
             this.txtConMod.Name = "txtConMod";
             this.txtConMod.Size = new System.Drawing.Size(37, 26);
             this.txtConMod.TabIndex = 13;
@@ -173,7 +173,7 @@
             this.txtStrMod.Enabled = false;
             this.txtStrMod.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStrMod.ForeColor = System.Drawing.Color.Black;
-            this.txtStrMod.Location = new System.Drawing.Point(104, 24);
+            this.txtStrMod.Location = new System.Drawing.Point(104, 26);
             this.txtStrMod.Name = "txtStrMod";
             this.txtStrMod.Size = new System.Drawing.Size(37, 26);
             this.txtStrMod.TabIndex = 12;
@@ -184,7 +184,7 @@
             this.txtCon.Enabled = false;
             this.txtCon.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCon.ForeColor = System.Drawing.Color.Black;
-            this.txtCon.Location = new System.Drawing.Point(6, 75);
+            this.txtCon.Location = new System.Drawing.Point(7, 136);
             this.txtCon.Name = "txtCon";
             this.txtCon.Size = new System.Drawing.Size(46, 39);
             this.txtCon.TabIndex = 11;
@@ -195,7 +195,7 @@
             this.txtDex.Enabled = false;
             this.txtDex.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDex.ForeColor = System.Drawing.Color.Black;
-            this.txtDex.Location = new System.Drawing.Point(6, 135);
+            this.txtDex.Location = new System.Drawing.Point(7, 78);
             this.txtDex.Name = "txtDex";
             this.txtDex.Size = new System.Drawing.Size(46, 39);
             this.txtDex.TabIndex = 10;
@@ -206,7 +206,7 @@
             this.txtInt.Enabled = false;
             this.txtInt.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInt.ForeColor = System.Drawing.Color.Black;
-            this.txtInt.Location = new System.Drawing.Point(6, 195);
+            this.txtInt.Location = new System.Drawing.Point(7, 194);
             this.txtInt.Name = "txtInt";
             this.txtInt.Size = new System.Drawing.Size(46, 39);
             this.txtInt.TabIndex = 9;
@@ -217,7 +217,7 @@
             this.txtWis.Enabled = false;
             this.txtWis.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWis.ForeColor = System.Drawing.Color.Black;
-            this.txtWis.Location = new System.Drawing.Point(6, 254);
+            this.txtWis.Location = new System.Drawing.Point(7, 252);
             this.txtWis.Name = "txtWis";
             this.txtWis.Size = new System.Drawing.Size(46, 39);
             this.txtWis.TabIndex = 8;
@@ -228,7 +228,7 @@
             this.txtCha.Enabled = false;
             this.txtCha.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCha.ForeColor = System.Drawing.Color.Black;
-            this.txtCha.Location = new System.Drawing.Point(6, 314);
+            this.txtCha.Location = new System.Drawing.Point(7, 310);
             this.txtCha.Name = "txtCha";
             this.txtCha.Size = new System.Drawing.Size(46, 39);
             this.txtCha.TabIndex = 7;
@@ -239,7 +239,7 @@
             this.txtStr.Enabled = false;
             this.txtStr.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStr.ForeColor = System.Drawing.Color.Black;
-            this.txtStr.Location = new System.Drawing.Point(6, 15);
+            this.txtStr.Location = new System.Drawing.Point(7, 20);
             this.txtStr.Name = "txtStr";
             this.txtStr.Size = new System.Drawing.Size(46, 39);
             this.txtStr.TabIndex = 6;
@@ -250,7 +250,7 @@
             this.lblCon.AutoSize = true;
             this.lblCon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCon.ForeColor = System.Drawing.Color.White;
-            this.lblCon.Location = new System.Drawing.Point(58, 88);
+            this.lblCon.Location = new System.Drawing.Point(57, 146);
             this.lblCon.Name = "lblCon";
             this.lblCon.Size = new System.Drawing.Size(44, 19);
             this.lblCon.TabIndex = 5;
@@ -261,7 +261,7 @@
             this.lblDex.AutoSize = true;
             this.lblDex.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDex.ForeColor = System.Drawing.Color.White;
-            this.lblDex.Location = new System.Drawing.Point(58, 148);
+            this.lblDex.Location = new System.Drawing.Point(58, 88);
             this.lblDex.Name = "lblDex";
             this.lblDex.Size = new System.Drawing.Size(42, 19);
             this.lblDex.TabIndex = 4;
@@ -272,7 +272,7 @@
             this.lblCha.AutoSize = true;
             this.lblCha.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCha.ForeColor = System.Drawing.Color.White;
-            this.lblCha.Location = new System.Drawing.Point(58, 327);
+            this.lblCha.Location = new System.Drawing.Point(58, 320);
             this.lblCha.Name = "lblCha";
             this.lblCha.Size = new System.Drawing.Size(43, 19);
             this.lblCha.TabIndex = 3;
@@ -283,7 +283,7 @@
             this.lblWis.AutoSize = true;
             this.lblWis.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWis.ForeColor = System.Drawing.Color.White;
-            this.lblWis.Location = new System.Drawing.Point(58, 267);
+            this.lblWis.Location = new System.Drawing.Point(60, 262);
             this.lblWis.Name = "lblWis";
             this.lblWis.Size = new System.Drawing.Size(39, 19);
             this.lblWis.TabIndex = 2;
@@ -294,7 +294,7 @@
             this.lblInt.AutoSize = true;
             this.lblInt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInt.ForeColor = System.Drawing.Color.White;
-            this.lblInt.Location = new System.Drawing.Point(58, 208);
+            this.lblInt.Location = new System.Drawing.Point(61, 204);
             this.lblInt.Name = "lblInt";
             this.lblInt.Size = new System.Drawing.Size(37, 19);
             this.lblInt.TabIndex = 1;
@@ -305,7 +305,7 @@
             this.lblStr.AutoSize = true;
             this.lblStr.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStr.ForeColor = System.Drawing.Color.White;
-            this.lblStr.Location = new System.Drawing.Point(58, 28);
+            this.lblStr.Location = new System.Drawing.Point(59, 30);
             this.lblStr.Name = "lblStr";
             this.lblStr.Size = new System.Drawing.Size(40, 19);
             this.lblStr.TabIndex = 0;

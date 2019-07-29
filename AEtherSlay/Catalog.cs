@@ -11,7 +11,7 @@ using System.IO;
  * MAIN DnD CATALOG CLASS
  * 
  * STATS FOLLOW ORDER [STR, CON, DEX, INT, WIS, CHA]
- * 
+ * DON'T ASK WHY, I WAS HAVING A FUNNY MOMENT...
  */
 
 namespace AEtherSlay
