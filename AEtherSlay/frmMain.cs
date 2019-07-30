@@ -223,6 +223,12 @@ namespace AEtherSlay
             }
         }
 
+        private void BtnMapGen_Click(object sender, EventArgs e)
+        {
+            Form spellFrm = new frmSpells();
+            spellFrm.Show();
+        }
+
         private void BtnCharSheets_Click(object sender, EventArgs e)
         {
             Form charSheetsfrm = new frmCharacterSheets();

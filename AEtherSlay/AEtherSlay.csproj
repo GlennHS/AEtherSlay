@@ -123,6 +123,12 @@
     <Compile Include="frmNewArmor.Designer.cs">
       <DependentUpon>frmNewArmor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSpells.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSpells.Designer.cs">
+      <DependentUpon>frmSpells.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewArmor.resx">
       <DependentUpon>frmNewArmor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSpells.resx">
+      <DependentUpon>frmSpells.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplash.resx">
       <DependentUpon>frmSplash.cs</DependentUpon>

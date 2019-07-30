@@ -18,9 +18,26 @@ namespace AEtherSlay
 {
     public class Catalog
     {
-        #region Variables
-         public Random rand = new Random();
+        #region Enums
+        public enum CharacterClass
+        {
+            Barbarian = 0,
+            Bard = 1,
+            Cleric = 2,
+            Druid = 3,
+            Fighter = 4,
+            Monk = 5,
+            Paladin = 6,
+            Ranger = 7,
+            Rogue = 8,
+            Sorcerer = 9,
+            Warlock = 10,
+            Wizard = 11
+        }
+        #endregion
 
+        #region Variables
+        public Random rand = new Random();
         public List<Weapon> simpleMelee = new List<Weapon>() {
                             new Weapon("Club", 4, 1, new List<string>() { "Light" }, "Bludgeoning"),
                             new Weapon("Dagger", 4, 1, new List<string>() { "Light", "Finesse", "Thrown (20/60)" }, "Piercing"),
@@ -713,27 +730,14 @@ namespace AEtherSlay
                 health = Convert.ToInt16(hitDiceSides + (((hitDiceSides / 2) + 1) * (level - 1)) + statMods[2]);
             }
 
-            public List<Spell> getValidSpells()
-            {
-                List<Spell> outSpells = new List<Spell>();
-                foreach(Spell currentSpell in spellList)
-                {
-                    if (currentSpell.canUse.Contains(this.className.ToLower()))
-                    {
-                        outSpells.Add(currentSpell);
-                    }
-                }
-                return validSpells;
-            }
-
             public void setKnownSpells(List<Spell> newSpells)
             {
-                this.knownSpells = newSpells;
+                knownSpells = newSpells;
             }
 
             public void addSpell(Spell spell)
             {
-                this.knownSpells.Add(spell);
+                knownSpells.Add(spell);
             }
         }
 
@@ -866,6 +870,19 @@ namespace AEtherSlay
             {
                 return Convert.ToInt16((double)((stat - 10) / 2));
             }
+        }
+
+        public static List<Spell> getValidSpells(string className)
+        {
+            List<Spell> outSpells = new List<Spell>();
+            foreach (Spell currentSpell in spellList)
+            {
+                if (currentSpell.canUse.Contains(className.ToLower()))
+                {
+                    outSpells.Add(currentSpell);
+                }
+            }
+            return outSpells;
         }
 
         public class Weapon
