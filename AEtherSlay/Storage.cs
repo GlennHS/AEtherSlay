@@ -10,6 +10,7 @@ namespace AEtherSlay
     {
         private List<Catalog.PlayerCharacter> storedCharacterSheets;
         public List<Catalog.CreatureCharacter> storedCreatures;
+        public List<Catalog.Spell> spellList;
 
         public Storage()
         {

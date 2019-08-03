@@ -17,7 +17,7 @@ namespace AEtherSlay
         {
             InitializeComponent();
 
-            foreach (string c in Enum.GetValues(typeof(Catalog.CharacterClass)))
+            foreach (string c in Enum.GetNames(typeof(Catalog.CharacterClass)))
             {
                 lbxSpellList.ValueMember = "this";
                 lbxSpellList.DisplayMember = "name";
