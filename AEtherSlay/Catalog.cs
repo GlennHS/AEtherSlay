@@ -129,8 +129,7 @@ namespace AEtherSlay
                             "Sylvan",
                             "Undercommon"
                     };
-        JArray storedCreatures;
-        JToken storedSpells;
+        JArray storedCreatures, storedSpells;
         #endregion
 
         public Catalog() { }
@@ -154,7 +153,7 @@ namespace AEtherSlay
             weapons.AddRange(martial);
 
             storedCreatures = (JArray)JsonConvert.DeserializeObject<object>(File.ReadAllText(@"..\Monsters.json"));
-            storedSpells = (JToken)JsonConvert.DeserializeObject<object>(File.ReadAllText(@"..\Spells.json"));
+            storedSpells = (JArray)JsonConvert.DeserializeObject<object>(File.ReadAllText(@"..\Spells.json"));
         }
 
         public void populateCreatureList()
@@ -256,6 +255,16 @@ namespace AEtherSlay
             foreach (JToken s in storedSpells)
             {
                 Spell spell = new Spell();
+                spell.name = (string)s.SelectToken("name");
+                spell.castTime = (string)s.SelectToken("casting_time");
+                spell.components = (string)s.SelectToken("components");
+                spell.description = (string)s.SelectToken("description");
+                spell.duration = (string)s.SelectToken("duration");
+                spell.level = (short)s.SelectToken("level");
+                spell.range = (string)s.SelectToken("range");
+                spell.school = (string)s.SelectToken("school");
+                spell.isRitual = (bool)s.SelectToken("ritual");
+                string[] classesCanUse = (string[])s.SelectToken("class_list");
             }
         }
 
