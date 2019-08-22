@@ -10,7 +10,7 @@ namespace AEtherSlay
     {
         public static readonly Catalog catalog = new Catalog();
         public static Storage storage = new Storage();
-        public static string version = "0.6alpha.4";
+        public static string version = "0.7alpha.0";
 
         /// <summary>
         /// The main entry point for the application.

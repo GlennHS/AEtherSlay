@@ -20,15 +20,13 @@ namespace AEtherSlay
         bool coinInUse = false;
         Image    imgHeads = Image.FromFile("../Images/DnDCoinH.png")
                 ,imgTails = Image.FromFile("../Images/DnDCoinT.png");
-        Thread   getCreatureList;
+        Thread getCreatureList, getSpellList;
 
         public frmMain()
         {
             InitializeComponent();
-            Program.catalog.catalogInit();
-            getCreatureList = new Thread(new ThreadStart(Program.catalog.populateCreatureList));
-            getCreatureList.Priority = ThreadPriority.Lowest;
-            getCreatureList.Start();
+            //Program.catalog.catalogInit();
+
             btnOuts = new object[] { txtD4, txtD6, txtD8, txtD10, txtD12, txtD20, txtD100 };
             foreach (TextBox box in btnOuts)
             {
@@ -38,6 +36,17 @@ namespace AEtherSlay
             pbCoin.Image = Image.FromFile("../Images/DnDCoinH.png");
         }
 
+        public void startDataThreads()
+        {
+            getCreatureList = new Thread(new ThreadStart(Program.catalog.populateCreatureList));
+            getCreatureList.Priority = ThreadPriority.Lowest;
+            getCreatureList.Start();
+            getSpellList = new Thread(new ThreadStart(Program.catalog.populateSpellList));
+            getSpellList.Priority = ThreadPriority.Lowest;
+            getSpellList.Start();
+        }
+
+        #region Dice Rolling
         private void btnD4_Click(object sender, EventArgs e)
         {
             if (allAtOnceRollStyle)
@@ -176,6 +185,7 @@ namespace AEtherSlay
                 //}
             }
         }
+        #endregion
 
         private void pbCoin_Click(object sender, EventArgs e)
         {
@@ -205,6 +215,7 @@ namespace AEtherSlay
             }
         }
 
+        #region Form Buttons
         private void btnCharacter_Click(object sender, EventArgs e)
         {
             Form charDialog = new frmCharacterDialog();
@@ -213,26 +224,53 @@ namespace AEtherSlay
 
         private void BtnCreature_Click(object sender, EventArgs e)
         {
+            if(default(Thread) == getCreatureList)
+            {
+                getCreatureList = new Thread(new ThreadStart(Program.catalog.populateCreatureList));
+                getCreatureList.Priority = ThreadPriority.Highest;
+                getCreatureList.Start();
+            }
             if(!getCreatureList.IsAlive)
             {
                 Form creatureFrm = new frmCreatureLookup();
                 creatureFrm.Show();
             } else
             {
+                getCreatureList.Priority = ThreadPriority.Highest;
                 MessageBox.Show("Please Wait...", "Loading", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void BtnMapGen_Click(object sender, EventArgs e)
+        private void BtnSpellList_Click(object sender, EventArgs e)
         {
-            Form spellFrm = new frmSpells();
-            spellFrm.Show();
+            if(default(Thread) == getSpellList)
+            {
+                getSpellList = new Thread(new ThreadStart(Program.catalog.populateSpellList));
+                getCreatureList.Priority = ThreadPriority.Highest;
+                getSpellList.Start();
+            }
+            if(!getSpellList.IsAlive)
+            {
+                Form spellFrm = new frmSpells();
+                spellFrm.Show();
+            } else
+            {
+                getCreatureList.Priority = ThreadPriority.Highest;
+                MessageBox.Show("Please Wait...", "Loading", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void BtnCharSheets_Click(object sender, EventArgs e)
         {
             Form charSheetsfrm = new frmCharacterSheets();
             charSheetsfrm.Show();
+        }
+        #endregion
+
+        private void FrmMain_Shown(object sender, EventArgs e)
+        {
+            Thread checkCanStartThreads = new Thread(startDataThreads);
+            checkCanStartThreads.Start();
         }
     }
 }

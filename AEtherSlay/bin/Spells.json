@@ -8,7 +8,11 @@
     "level": 0,
     "range": "60 feet",
     "school": "Conjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "sorcerer",
+      "wizard"
+    ]
   },
   {
     "name": "Aid",
@@ -301,7 +305,10 @@
     "level": 4,
     "range": "Self (30-foot radius)",
     "school": "Abjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "paladin"
+    ]
   },
   {
     "name": "Aura of Vitality",
@@ -448,7 +455,10 @@
     "level": 5,
     "range": "120 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Blade Barrier",
@@ -473,7 +483,13 @@
     "level": 0,
     "range": "Self",
     "school": "Abjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ]
   },
   {
     "name": "Bless",
@@ -668,7 +684,12 @@
     "level": 0,
     "range": "120 feet",
     "school": "Necromancy",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ]
   },
   {
     "name": "Chromatic Orb",
@@ -966,7 +987,11 @@
     "level": 5,
     "range": "90 feet",
     "school": "Conjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "druid",
+      "wizard"
+    ]
   },
   {
     "name": "Conjure Fey",
@@ -1234,7 +1259,10 @@
     "level": 3,
     "range": "Self",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "paladin"
+    ]
   },
   {
     "name": "Cure Wounds",
@@ -1263,7 +1291,12 @@
     "level": 0,
     "range": "120 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "sorcerer",
+      "wizard"
+    ]
   },
   {
     "name": "Darkness",
@@ -1369,7 +1402,10 @@
     "level": 5,
     "range": "Self (30-foot radius)",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "paladin"
+    ]
   },
   {
     "name": "Detect Evil and Good",
@@ -1634,7 +1670,10 @@
     "level": 6,
     "range": "Touch",
     "school": "Conjuration",
-    "ritual": true
+    "ritual": true,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Dream",
@@ -1661,7 +1700,10 @@
     "level": 0,
     "range": "30 feet",
     "school": "Transmutation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "druid"
+    ]
   },
   {
     "name": "Earthquake",
@@ -1688,7 +1730,10 @@
     "level": 0,
     "range": "120 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "warlock"
+    ]
   },
   {
     "name": "Elemental Weapon",
@@ -1805,7 +1850,10 @@
     "level": 4,
     "range": "90 feet",
     "school": "Conjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Expeditious Retreat",
@@ -1832,7 +1880,13 @@
     "level": 6,
     "range": "Self",
     "school": "Necromancy",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ]
   },
   {
     "name": "Fabricate",
@@ -2044,7 +2098,11 @@
     "level": 0,
     "range": "120 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "sorcerer",
+      "wizard"
+    ]
   },
   {
     "name": "Fire Shield",
@@ -2238,7 +2296,13 @@
     "level": 0,
     "range": "Self",
     "school": "Enchantment",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ]
   },
   {
     "name": "Gaseous Form",
@@ -2478,7 +2542,11 @@
     "level": 0,
     "range": "Touch",
     "school": "Divination",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "cleric",
+      "druid"
+    ]
   },
   {
     "name": "Guiding Bolt",
@@ -2652,7 +2720,11 @@
     "level": 6,
     "range": "30 feet",
     "school": "Conjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "cleric",
+      "druid"
+    ]
   },
   {
     "name": "Heroism",
@@ -2754,7 +2826,10 @@
     "level": 1,
     "range": "90 feet",
     "school": "Divination",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "ranger"
+    ]
   },
   {
     "name": "Hypnotic Pattern",
@@ -2955,7 +3030,10 @@
     "level": 4,
     "range": "Touch",
     "school": "Conjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Leomund’s Tiny Hut",
@@ -2966,7 +3044,11 @@
     "level": 3,
     "range": "Self (10-foot-radius hemisphere)",
     "school": "Evocation",
-    "ritual": true
+    "ritual": true,
+    "class_list": [
+      "bard",
+      "wizard"
+    ]
   },
   {
     "name": "Lesser Restoration",
@@ -3010,7 +3092,13 @@
     "level": 0,
     "range": "Touch",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "cleric",
+      "sorcerer",
+      "wizard"
+    ]
   },
   {
     "name": "Lightning Arrow",
@@ -3136,7 +3224,13 @@
     "level": 0,
     "range": "30 feet",
     "school": "Conjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ]
   },
   {
     "name": "Magic Circle",
@@ -3178,7 +3272,11 @@
     "level": 1,
     "range": "120 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "sorcerer",
+      "wizard"
+    ]
   },
   {
     "name": "Magic Mouth",
@@ -3310,7 +3408,11 @@
     "level": 3,
     "range": "Touch",
     "school": "Transmutation",
-    "ritual": true
+    "ritual": true,
+    "class_list": [
+      "cleric",
+      "druid"
+    ]
   },
   {
     "name": "Melf’s Acid Arrow",
@@ -3321,7 +3423,10 @@
     "level": 2,
     "range": "90 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Mending",
@@ -3332,7 +3437,14 @@
     "level": 1,
     "range": "Touch",
     "school": "Transmutation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "cleric",
+      "druid",
+      "sorcerer",
+      "wizard"
+    ]
   },
   {
     "name": "Message",
@@ -3343,7 +3455,12 @@
     "level": 0,
     "range": "120 feet",
     "school": "Transmutation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "sorcerer",
+      "wizard"
+    ]
   },
   {
     "name": "Meteor Swarm",
@@ -3384,7 +3501,13 @@
     "level": 0,
     "range": "30 feet",
     "school": "Illusion",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ]
   },
   {
     "name": "Mirage Arcane",
@@ -3487,7 +3610,10 @@
     "level": 4,
     "range": "120 feet",
     "school": "Abjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Mordenkainen’s Magnificent Mansion",
@@ -3498,7 +3624,11 @@
     "level": 7,
     "range": "300 feet",
     "school": "Conjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "wizard"
+    ]
   },
   {
     "name": "Mordenkainen’s Private Sanctum",
@@ -3509,7 +3639,10 @@
     "level": 4,
     "range": "120 feet",
     "school": "Abjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Mordenkainen’s Sword",
@@ -3520,7 +3653,11 @@
     "level": 7,
     "range": "60 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "wizard"
+    ]
   },
   {
     "name": "Move Earth",
@@ -3563,7 +3700,10 @@
     "level": 2,
     "range": "Touch",
     "school": "Illusion",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Otiluke’s Freezing Sphere",
@@ -3574,7 +3714,10 @@
     "level": 5,
     "range": "300 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Otiluke’s Resilient Sphere",
@@ -3585,7 +3728,10 @@
     "level": 4,
     "range": "30 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Otto’s Irresistible Dance",
@@ -3596,7 +3742,11 @@
     "level": 6,
     "range": "30 feet",
     "school": "Enchantment",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "wizard"
+    ]
   },
   {
     "name": "Pass without Trace",
@@ -3744,7 +3894,10 @@
     "level": 0,
     "range": "10 feet",
     "school": "Conjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Polymorph",
@@ -3833,7 +3986,10 @@
     "level": 0,
     "range": "10 feet",
     "school": "Transmutation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Prismatic Spray",
@@ -3873,7 +4029,10 @@
     "level": 0,
     "range": "Self",
     "school": "Conjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "druid"
+    ]
   },
   {
     "name": "Programmed Illusion",
@@ -3949,7 +4108,13 @@
     "level": 2,
     "range": "Touch",
     "school": "Abjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "cleric",
+      "druid",
+      "paladin",
+      "ranger"
+    ]
   },
   {
     "name": "Purify Food and Drink",
@@ -3992,7 +4157,10 @@
     "level": 5,
     "range": "30 feet",
     "school": "Divination",
-    "ritual": true
+    "ritual": true,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Ray of Enfeeblement",
@@ -4018,7 +4186,11 @@
     "level": 0,
     "range": "60 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "sorcerer",
+      "wizard"
+    ]
   },
   {
     "name": "Ray of Sickness",
@@ -4090,7 +4262,11 @@
     "level": 0,
     "range": "Touch",
     "school": "Abjuration",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "cleric",
+      "druid"
+    ]
   },
   {
     "name": "Resurrection",
@@ -4161,7 +4337,10 @@
     "level": 0,
     "range": "60 feet",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "cleric"
+    ]
   },
   {
     "name": "Sanctuary",
@@ -4357,7 +4536,10 @@
     "level": 0,
     "range": "Touch",
     "school": "Transmutation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "druid"
+    ]
   },
   {
     "name": "Shocking Grasp",
@@ -4368,7 +4550,11 @@
     "level": 0,
     "range": "Touch",
     "school": "Evocation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "sorcerer",
+      "wizard"
+    ]
   },
   {
     "name": "Silence",
@@ -4472,7 +4658,10 @@
     "level": 0,
     "range": "Touch",
     "school": "Necromancy",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "cleric"
+    ]
   },
   {
     "name": "Speak with Animals",
@@ -4745,7 +4934,11 @@
     "level": 1,
     "range": "30 feet",
     "school": "Enchantment",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "wizard"
+    ]
   },
   {
     "name": "Telekinesis",
@@ -4817,7 +5010,10 @@
     "level": 1,
     "range": "30 feet",
     "school": "Conjuration",
-    "ritual": true
+    "ritual": true,
+    "class_list": [
+      "wizard"
+    ]
   },
   {
     "name": "Thaumaturgy",
@@ -4828,7 +5024,10 @@
     "level": 0,
     "range": "30 feet",
     "school": "Transmutation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "cleric"
+    ]
   },
   {
     "name": "Thorn Whip",
@@ -4839,7 +5038,10 @@
     "level": 0,
     "range": "30 feet",
     "school": "Transmutation",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "druid"
+    ]
   },
   {
     "name": "Thunderous Smite",
@@ -4992,7 +5194,13 @@
     "level": 0,
     "range": "30 feet",
     "school": "Divination",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ]
   },
   {
     "name": "Tsunami",
@@ -5048,7 +5256,10 @@
     "level": 0,
     "range": "60 feet",
     "school": "Enchantment",
-    "ritual": false
+    "ritual": false,
+    "class_list": [
+      "bard"
+    ]
   },
   {
     "name": "Wall of Fire",

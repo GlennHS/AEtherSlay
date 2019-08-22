@@ -19,19 +19,33 @@ namespace AEtherSlay
 
             foreach (string c in Enum.GetNames(typeof(Catalog.CharacterClass)))
             {
-                lbxSpellList.ValueMember = "this";
-                lbxSpellList.DisplayMember = "name";
                 cmbClasses.Items.Add(c);
             }
         }
 
         private void CmbClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            validSpells = Catalog.getValidSpells(cmbClasses.SelectedText);
-            foreach(Catalog.Spell s in validSpells)
+            lbxSpellList.Items.Clear();
+            validSpells = Catalog.getValidSpellsByClass(cmbClasses.Text);
+            validSpells.Sort((a, b) => a.level.CompareTo(b.level));
+            foreach (Catalog.Spell s in validSpells)
             {
-                lbxSpellList.Items.Add(s);
+                lbxSpellList.Items.Add(s.name);
             }
+        }
+
+        private void LbxSpellList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Catalog.Spell selectedSpell = Program.catalog.getSpellByName(lbxSpellList.Text);
+            txtCastTime.Text = selectedSpell.casting_time;
+            txtDuration.Text = selectedSpell.duration;
+            txtLevel.Text = selectedSpell.level.ToString();
+            txtName.Text = selectedSpell.name;
+            txtRange.Text = selectedSpell.range;
+            rtbComponents.Text = selectedSpell.components;
+            chkRitual.Checked = selectedSpell.ritual;
+            rtbDescription.Text = selectedSpell.description;
+            txtSchool.Text = selectedSpell.school;
         }
     }
 }

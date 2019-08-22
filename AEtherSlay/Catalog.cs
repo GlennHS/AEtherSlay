@@ -132,7 +132,7 @@ namespace AEtherSlay
         JArray storedCreatures, storedSpells;
         #endregion
 
-        public Catalog() { }
+        public Catalog() { catalogInit(); }
 
         /// <summary>
         ///  MUST BE INVOKED BEFORE USING CATALOG
@@ -254,20 +254,12 @@ namespace AEtherSlay
         {
             foreach (JToken s in storedSpells)
             {
-                Spell spell = new Spell();
-                spell.name = (string)s.SelectToken("name");
-                spell.castTime = (string)s.SelectToken("casting_time");
-                spell.components = (string)s.SelectToken("components");
-                spell.description = (string)s.SelectToken("description");
-                spell.duration = (string)s.SelectToken("duration");
-                spell.level = (short)s.SelectToken("level");
-                spell.range = (string)s.SelectToken("range");
-                spell.school = (string)s.SelectToken("school");
-                spell.isRitual = (bool)s.SelectToken("ritual");
-                string[] classesCanUse = (string[])s.SelectToken("class_list");
+                Spell spell = JsonConvert.DeserializeObject<Spell>(JsonConvert.SerializeObject(s));
+                Program.storage.spellList.Add(spell);
             }
         }
 
+        #region Utility Functions
         public decimal handleCR(string crString)
         {
             decimal outCR;
@@ -278,6 +270,75 @@ namespace AEtherSlay
                 outCR = decimal.Parse(crElems[0]) / decimal.Parse(crElems[1]);
             };
             return outCR;
+        }
+
+        private string[] splitString(string input)
+        {
+            string[] output = input.Split(",".ToCharArray()[0]);
+            foreach (string thing in output)
+            {
+                thing.Trim();
+            }
+            return output;
+        }
+
+        public short[] rollStats()
+        {
+            // STR CON DEX INT WIS CHA
+            // 0   1   2   3   4   5
+            short[] statRolls = new short[6];
+
+            for (short stat = 0; stat < 6; stat++)
+            {
+                Int32[] rolls = new Int32[3];
+                for (short roll = 0; roll < 4; roll++)
+                {
+                    Int32 rolled = rand.Next(1, 7);
+                    if ((roll == 3) && (rolled > rolls.Min()))
+                    {
+                        rolls[Array.IndexOf(rolls, rolls.Min())] = rolled;
+                    }
+                    else
+                    {
+                        if (roll != 3)
+                        {
+                            rolls[roll] = rolled;
+                        }
+                    }
+                }
+                statRolls[stat] = Convert.ToInt16(rolls.Sum());
+            }
+            return statRolls;
+        }
+
+        public short[] calcModifiers(short[] stats)
+        {
+            short[] statModifiers = new short[6];
+            for (short i = 0; i < stats.Count(); i++)
+            {
+                if (stats[i] < 10 && (stats[i] % 2) == 1)
+                {
+                    statModifiers[i] = Convert.ToInt16((double)((stats[i] - 10) / 2) - 1);
+                }
+                else
+                {
+                    statModifiers[i] = Convert.ToInt16((double)((stats[i] - 10) / 2));
+                }
+
+            }
+            return statModifiers;
+        }
+
+        public short calcModifier(short? stat)
+        {
+            if (stat < 10 && (stat % 2) == 1)
+            {
+                return Convert.ToInt16((double)((stat - 10) / 2) - 1);
+            }
+            else
+            {
+                return Convert.ToInt16((double)((stat - 10) / 2));
+            }
         }
 
         public Skill getStatMod(string name, short coreStat, short? mod = 0)
@@ -292,15 +353,28 @@ namespace AEtherSlay
             }
         }
 
-        private string[] splitString(string input)
+        public static List<Spell> getValidSpellsByClass(string className)
         {
-            string[] output = input.Split(",".ToCharArray()[0]);
-            foreach (string thing in output)
+            List<Spell> outSpells = new List<Spell>();
+            foreach (Spell currentSpell in Program.storage.spellList)
             {
-                thing.Trim();
+                if (currentSpell.class_list.Contains(className.ToLower()))
+                {
+                    outSpells.Add(currentSpell);
+                }
             }
-            return output;
+            return outSpells;
         }
+
+        public Spell getSpellByName(string name)
+        {
+            foreach(Spell s in Program.storage.spellList)
+            {
+                if(s.name == name) { return s; }
+            }
+            throw new Exception("Spell not found");
+        }
+        #endregion
 
         public abstract class Character
         {
@@ -319,10 +393,10 @@ namespace AEtherSlay
                                ,languages;
             public List<Weapon> weapons;
             public Armor        armor;
-            public Int16[]      stats
+            public short[]      stats
                                ,statMods;  
             public Boolean      hasShield;
-            public Int16 ac
+            public short ac
                                , health
                                , hitDiceSides
                                , hitDice;
@@ -341,7 +415,7 @@ namespace AEtherSlay
 
             }
 
-            protected Character(string name, short[] statRolls, string speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, List<string> languages, List<string> resistances, string spellcastingStat, string proficiencies, Int16 hitDiceSides, List<string> savingThrows, string traits)
+            protected Character(string name, short[] statRolls, string speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, List<string> languages, List<string> resistances, string spellcastingStat, string proficiencies, short hitDiceSides, List<string> savingThrows, string traits)
             {
                 this.name = name;
                 stats = statRolls;
@@ -369,7 +443,7 @@ namespace AEtherSlay
             public short level = 1;
             public short[] money = new short[5];
 
-            public PlayerCharacter(string name, short[] statRolls, string className, string raceName, string speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, List<string> languages, List<string> resistances, string spellcastingStat, string proficiencies, Int16 hitDiceSides, List<string> savingThrows, string traits)
+            public PlayerCharacter(string name, short[] statRolls, string className, string raceName, string speed, List<Weapon> weapons, Armor armor, string alignment, string equipment, List<string> languages, List<string> resistances, string spellcastingStat, string proficiencies, short hitDiceSides, List<string> savingThrows, string traits)
                              : base(name, statRolls, speed, weapons, armor, alignment, equipment, languages, resistances, spellcastingStat, proficiencies, hitDiceSides, savingThrows, traits)
             {
                 stats = statRolls;
@@ -494,77 +568,6 @@ namespace AEtherSlay
             }
         }
 
-        public short[] rollStats()
-        {
-            // STR CON DEX INT WIS CHA
-            // 0   1   2   3   4   5
-            Int16[] statRolls = new Int16[6];
-
-            for (short stat = 0; stat < 6; stat++)
-            {
-                Int32[] rolls = new Int32[3];
-                for (short roll = 0; roll < 4; roll++)
-                {
-                    Int32 rolled = rand.Next(1, 7);
-                    if ((roll == 3) && (rolled > rolls.Min()))
-                    {
-                        rolls[Array.IndexOf(rolls, rolls.Min())] = rolled;
-                    }
-                    else
-                    {
-                        if (roll != 3)
-                        {
-                            rolls[roll] = rolled;
-                        }
-                    }
-                }
-                statRolls[stat] = Convert.ToInt16(rolls.Sum());
-            }
-            return statRolls;
-        }
-
-        public short[] calcModifiers(short[] stats)
-        {
-            short[] statModifiers = new short[6];
-            for (short i = 0; i < stats.Count(); i++)
-            {
-                if(stats[i] < 10 && (stats[i] % 2) == 1)
-                {
-                    statModifiers[i] = Convert.ToInt16((double)((stats[i] - 10) / 2) - 1);
-                } else
-                {
-                    statModifiers[i] = Convert.ToInt16((double)((stats[i] - 10) / 2));
-                }
-                
-            }
-            return statModifiers;
-        }
-
-        public short calcModifier(short? stat)
-        {
-            if (stat < 10 && (stat % 2) == 1)
-            {
-                return Convert.ToInt16((double)((stat - 10) / 2) - 1);
-            }
-            else
-            {
-                return Convert.ToInt16((double)((stat - 10) / 2));
-            }
-        }
-
-        public static List<Spell> getValidSpells(string className)
-        {
-            List<Spell> outSpells = new List<Spell>();
-            foreach (Spell currentSpell in Program.storage.spellList)
-            {
-                if (Enum.GetNames(typeof(CharacterClass)).Contains(className))
-                {
-                    outSpells.Add(currentSpell);
-                }
-            }
-            return outSpells;
-        }
-
         public class Weapon
         {
             public short damageDiceSides, numDamageDice, quantity;
@@ -581,7 +584,7 @@ namespace AEtherSlay
                 quantity = 1;
             }
 
-            public String getDmgString()
+            public string getDmgString()
             {
                 return $"{numDamageDice}d{damageDiceSides} {damageType}";
             }
@@ -589,8 +592,8 @@ namespace AEtherSlay
     
         public class Armor
         {
-            public String name;
-            public Int16 baseAC, dexLimit;
+            public string name;
+            public short baseAC, dexLimit;
             public bool givesStealthDisadvantage;
 
             public Armor(string name, short dexLimit, short baseAC, bool givesStealthDisadvantage)
@@ -601,7 +604,7 @@ namespace AEtherSlay
                 this.givesStealthDisadvantage = givesStealthDisadvantage;
             }
 
-            public Int16 getAC(Int16 dex)
+            public short getAC(short dex)
             {
                 return Convert.ToInt16(baseAC + Math.Min(dex, dexLimit));
             }
@@ -610,9 +613,9 @@ namespace AEtherSlay
         public class Spell
         {
             public short level;
-            public string name, castTime, components, description, duration, range, school;
-            public List<PlayerCharacter> canUse;
-            public bool isRitual;
+            public string name, casting_time, components, description, duration, range, school;
+            public List<string> class_list;
+            public bool ritual;
 
             public Spell() { }
         }

@@ -16,6 +16,7 @@ namespace AEtherSlay
         {
             storedCharacterSheets = new List<Catalog.PlayerCharacter>();
             storedCreatures = new List<Catalog.CreatureCharacter>();
+            spellList = new List<Catalog.Spell>();
         }
 
         public void addCharacterSheet(Catalog.PlayerCharacter charToAdd)
