@@ -236,7 +236,7 @@ namespace AEtherSlay
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            frmCreatureFilter frmFilter = new frmCreatureFilter();
+            frmFilterCreatures frmFilter = new frmFilterCreatures();
             frmFilter.ShowDialog();
             short minCR, maxCR, minAC, maxAC;
             List<string> alignmentList, sizeList;

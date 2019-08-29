@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace AEtherSlay
 {
-    public partial class frmCreatureFilter : Form
+    public partial class frmFilterCreatures : Form
     {
         public short? minCR, maxCR, minAC, maxAC;
 
@@ -19,7 +19,7 @@ namespace AEtherSlay
 
         public string searchTerm = "";
 
-        public frmCreatureFilter()
+        public frmFilterCreatures()
         {
             InitializeComponent();
             nudMinCR.Value = -1;

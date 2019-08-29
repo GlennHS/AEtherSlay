@@ -65,7 +65,7 @@
             // 
             this.btnCharacter.BackColor = System.Drawing.Color.Black;
             this.btnCharacter.ForeColor = System.Drawing.Color.White;
-            this.btnCharacter.Location = new System.Drawing.Point(19, 165);
+            this.btnCharacter.Location = new System.Drawing.Point(19, 171);
             this.btnCharacter.Margin = new System.Windows.Forms.Padding(4);
             this.btnCharacter.Name = "btnCharacter";
             this.btnCharacter.Size = new System.Drawing.Size(169, 41);
@@ -78,7 +78,7 @@
             // 
             this.btnEncounter.BackColor = System.Drawing.Color.Black;
             this.btnEncounter.ForeColor = System.Drawing.Color.White;
-            this.btnEncounter.Location = new System.Drawing.Point(19, 262);
+            this.btnEncounter.Location = new System.Drawing.Point(19, 312);
             this.btnEncounter.Margin = new System.Windows.Forms.Padding(4);
             this.btnEncounter.Name = "btnEncounter";
             this.btnEncounter.Size = new System.Drawing.Size(169, 41);
@@ -90,7 +90,7 @@
             // 
             this.btnCreature.BackColor = System.Drawing.Color.Black;
             this.btnCreature.ForeColor = System.Drawing.Color.White;
-            this.btnCreature.Location = new System.Drawing.Point(19, 214);
+            this.btnCreature.Location = new System.Drawing.Point(19, 218);
             this.btnCreature.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreature.Name = "btnCreature";
             this.btnCreature.Size = new System.Drawing.Size(169, 41);
@@ -359,12 +359,12 @@
             // 
             this.btnSpellList.BackColor = System.Drawing.Color.Black;
             this.btnSpellList.ForeColor = System.Drawing.Color.White;
-            this.btnSpellList.Location = new System.Drawing.Point(19, 309);
+            this.btnSpellList.Location = new System.Drawing.Point(19, 265);
             this.btnSpellList.Margin = new System.Windows.Forms.Padding(4);
             this.btnSpellList.Name = "btnSpellList";
             this.btnSpellList.Size = new System.Drawing.Size(169, 41);
             this.btnSpellList.TabIndex = 3;
-            this.btnSpellList.Text = "Spell Generator";
+            this.btnSpellList.Text = "5e Spell Catalog";
             this.btnSpellList.UseVisualStyleBackColor = false;
             this.btnSpellList.Click += new System.EventHandler(this.BtnSpellList_Click);
             // 
@@ -372,7 +372,7 @@
             // 
             this.btnItemGen.BackColor = System.Drawing.Color.Black;
             this.btnItemGen.ForeColor = System.Drawing.Color.White;
-            this.btnItemGen.Location = new System.Drawing.Point(19, 357);
+            this.btnItemGen.Location = new System.Drawing.Point(19, 359);
             this.btnItemGen.Margin = new System.Windows.Forms.Padding(4);
             this.btnItemGen.Name = "btnItemGen";
             this.btnItemGen.Size = new System.Drawing.Size(169, 41);
@@ -408,7 +408,7 @@
             // 
             this.btnBattleTracker.BackColor = System.Drawing.Color.Black;
             this.btnBattleTracker.ForeColor = System.Drawing.Color.White;
-            this.btnBattleTracker.Location = new System.Drawing.Point(19, 404);
+            this.btnBattleTracker.Location = new System.Drawing.Point(19, 406);
             this.btnBattleTracker.Margin = new System.Windows.Forms.Padding(4);
             this.btnBattleTracker.Name = "btnBattleTracker";
             this.btnBattleTracker.Size = new System.Drawing.Size(169, 41);
@@ -432,7 +432,7 @@
             // 
             this.btnCharSheets.BackColor = System.Drawing.Color.Black;
             this.btnCharSheets.ForeColor = System.Drawing.Color.White;
-            this.btnCharSheets.Location = new System.Drawing.Point(19, 452);
+            this.btnCharSheets.Location = new System.Drawing.Point(19, 453);
             this.btnCharSheets.Margin = new System.Windows.Forms.Padding(4);
             this.btnCharSheets.Name = "btnCharSheets";
             this.btnCharSheets.Size = new System.Drawing.Size(169, 41);

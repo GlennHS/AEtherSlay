@@ -105,11 +105,11 @@
     <Compile Include="frmCreatureLookup.Designer.cs">
       <DependentUpon>frmCreatureLookup.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCreatureFilter.cs">
+    <Compile Include="frmFilterCreatures.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCreatureFilter.Designer.cs">
-      <DependentUpon>frmCreatureFilter.cs</DependentUpon>
+    <Compile Include="frmFilterCreatures.Designer.cs">
+      <DependentUpon>frmFilterCreatures.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -144,8 +144,8 @@
     <EmbeddedResource Include="frmCreatureLookup.resx">
       <DependentUpon>frmCreatureLookup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCreatureFilter.resx">
-      <DependentUpon>frmCreatureFilter.cs</DependentUpon>
+    <EmbeddedResource Include="frmFilterCreatures.resx">
+      <DependentUpon>frmFilterCreatures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
