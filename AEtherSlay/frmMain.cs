@@ -36,6 +36,7 @@ namespace AEtherSlay
             pbCoin.Image = Image.FromFile("../Images/DnDCoinH.png");
         }
 
+        //GET from JSON is resource intensive ~5 seconds on i5-6600k so use multithreading
         public void startDataThreads()
         {
             getCreatureList = new Thread(new ThreadStart(Program.catalog.populateCreatureList));
@@ -257,6 +258,15 @@ namespace AEtherSlay
             {
                 getCreatureList.Priority = ThreadPriority.Highest;
                 MessageBox.Show("Please Wait...", "Loading", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Are you sure you want to leave?", "Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(res == DialogResult.No)
+            {
+                e.Cancel = true;
             }
         }
 

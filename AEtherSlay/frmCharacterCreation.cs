@@ -32,16 +32,16 @@ namespace AEtherSlay
         string className, raceName, spellcastingStat, alignment, speed = "30ft.";
         List<Catalog.Armor> possibleArmors = new List<Catalog.Armor>();
 
-        List<String> proficiencies = new List<String>()
-                    ,languages = new List<String>()
-                    ,savingThrows = new List<String>()
-                    ,traits = new List<String>()
-                    ,resistances = new List<String>()
-                    ,equipment = new List<String>();
+        List<string> proficiencies = new List<string>()
+                    ,languages = new List<string>()
+                    ,savingThrows = new List<string>()
+                    ,traits = new List<string>()
+                    ,resistances = new List<string>()
+                    ,equipment = new List<string>();
 
         List<Catalog.Weapon> primaryWeaponChoices = new List<Catalog.Weapon>()
                             ,secondaryWeaponChoices = new List<Catalog.Weapon>();
-        List<String> preferredStatsIRA = new List<string>() { };
+        List<string> preferredStatsIRA = new List<string>() { };
         #endregion
 
         private void cbArmor1_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace AEtherSlay
             changedByClick = true;
         }
 
-        public String chooseFromList(List<String> packChoices)
+        public string chooseFromList(List<string> packChoices)
         {
             return packChoices[rand.Next(0, packChoices.Count)];
         }
@@ -280,8 +280,8 @@ namespace AEtherSlay
                     raceName = "High Elf";
                     statRolls[2] += 2;
                     statRolls[3] += 1;
-                    traits.AddRange(new List<String>() { "Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Cantrip", "Additional Language" });
-                    proficiencies.AddRange( new List<String>{ "Perception", "Longsword", "Shortsword", "Shortbow", "Longbow" });
+                    traits.AddRange(new List<string>() { "Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Cantrip", "Additional Language" });
+                    proficiencies.AddRange( new List<string>{ "Perception", "Longsword", "Shortsword", "Shortbow", "Longbow" });
                     languages.Add("Elvish");
                     break;
 
@@ -290,8 +290,8 @@ namespace AEtherSlay
                     statRolls[2] += 2;
                     statRolls[4] += 1;
                     speed = "35ft.";
-                    traits.AddRange(new List<String>() { "Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Mask Of The Wild" });
-                    proficiencies.AddRange(new List<String> { "Perception", "Longsword", "Shortsword", "Shortbow", "Longbow" });
+                    traits.AddRange(new List<string>() { "Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Mask Of The Wild" });
+                    proficiencies.AddRange(new List<string> { "Perception", "Longsword", "Shortsword", "Shortbow", "Longbow" });
                     languages.Add("Elvish");
                     break;
 
@@ -301,8 +301,8 @@ namespace AEtherSlay
                     statRolls[4] += 1;
                     health += 1;
                     speed = "25ft.";
-                    traits.AddRange( new List<String>() { "Darkvision", "Advantage on Saving Throws [Poison]", "Dwarven Toughness", "Tool Proficiency", "Stonecunning" });
-                    proficiencies.AddRange(new List<String>() { "Battleaxe", "Handaxe", "Throwing Hammer", "Warhammer" });
+                    traits.AddRange( new List<string>() { "Darkvision", "Advantage on Saving Throws [Poison]", "Dwarven Toughness", "Tool Proficiency", "Stonecunning" });
+                    proficiencies.AddRange(new List<string>() { "Battleaxe", "Handaxe", "Throwing Hammer", "Warhammer" });
                     languages.Add("Dwarvish");
                     resistances.Add("Poison");
                     break;
@@ -312,10 +312,10 @@ namespace AEtherSlay
                     statRolls[1] += 2;
                     statRolls[0] += 2;
                     speed = "25ft.";
-                    traits.AddRange(new List<String>() { "Darkvision", "Advantage on Saving Throws [Poison]", "Dwarven Toughness", "Tool Proficiency", "Stonecunning" });
-                    proficiencies.AddRange(new List<String>() { "Battleaxe", "Handaxe", "Throwing Hammer", "Warhammer" });
-                    if (!proficiencies.Contains("Light Armor")) { proficiencies.AddRange(new List<String>() { "Light Armor" }); }
-                    if (!proficiencies.Contains("Medium Armor")) { proficiencies.AddRange(new List<String>() { "Medium Armor" }); }
+                    traits.AddRange(new List<string>() { "Darkvision", "Advantage on Saving Throws [Poison]", "Dwarven Toughness", "Tool Proficiency", "Stonecunning" });
+                    proficiencies.AddRange(new List<string>() { "Battleaxe", "Handaxe", "Throwing Hammer", "Warhammer" });
+                    if (!proficiencies.Contains("Light Armor")) { proficiencies.AddRange(new List<string>() { "Light Armor" }); }
+                    if (!proficiencies.Contains("Medium Armor")) { proficiencies.AddRange(new List<string>() { "Medium Armor" }); }
                     languages.Add("Dwarvish");
                     resistances.Add("Poison");
                     break;
@@ -324,8 +324,8 @@ namespace AEtherSlay
                     raceName = "Dark Elf";
                     statRolls[2] += 2;
                     statRolls[5] += 1;
-                    traits.AddRange(new List<String>() { "Superior Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Sunlight Sensitivity", "Drow Magic" });
-                    proficiencies.AddRange(new List<String> { "Perception", "Rapier", "Shortsword", "Hand Crossbow" });
+                    traits.AddRange(new List<string>() { "Superior Darkvision", "Advantage on Saving Throws [Charm]", "No Magical Sleep", "Trance [4 hour long rest]", "Sunlight Sensitivity", "Drow Magic" });
+                    proficiencies.AddRange(new List<string> { "Perception", "Rapier", "Shortsword", "Hand Crossbow" });
                     languages.Add("Elvish");
                     break;
 
@@ -334,7 +334,7 @@ namespace AEtherSlay
                     statRolls[2] += 2;
                     statRolls[5] += 1;
                     speed = "25ft.";
-                    traits.AddRange(new List<String>() { "Lucky", "Brave", "Halfling Nimbleness", "Naturally Stealthy" });
+                    traits.AddRange(new List<string>() { "Lucky", "Brave", "Halfling Nimbleness", "Naturally Stealthy" });
                     languages.Add("Halfling");
                     break;
 
@@ -343,7 +343,7 @@ namespace AEtherSlay
                     statRolls[2] += 2;
                     statRolls[1] += 1;
                     speed = "25ft.";
-                    traits.AddRange(new List<String>() { "Lucky", "Brave", "Halfling Nimbleness", "Poison Resistance", "Advantage Saving Throws Poison" });
+                    traits.AddRange(new List<string>() { "Lucky", "Brave", "Halfling Nimbleness", "Poison Resistance", "Advantage Saving Throws Poison" });
                     languages.Add("Halfling");
                     break;
 
@@ -359,13 +359,13 @@ namespace AEtherSlay
                     statRolls[0] += 2;
                     statRolls[5] += 1;
                     #region Determine Ancestry
-                    List<String> possibleAncestries = new List<string>() { "Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White" };
-                    List<String> ancestryElement = new List<string>() { "Acid", "Lightning", "Fire", "Lightning", "Acid", "Fire", "Poison", "Fire", "Cold", "Cold" };
+                    List<string> possibleAncestries = new List<string>() { "Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White" };
+                    List<string> ancestryElement = new List<string>() { "Acid", "Lightning", "Fire", "Lightning", "Acid", "Fire", "Poison", "Fire", "Cold", "Cold" };
                     Int32 ancestryNum = rand.Next(possibleAncestries.Count);
-                    String ancestryType = possibleAncestries[ancestryNum];
-                    String breathWeapon;
-                    if(new List<String>() { "Black", "Blue", "Brass", "Bronze", "Copper" }.Contains(ancestryType)) { breathWeapon = "5 by 30 ft. line (Dex. save)"; }
-                    else if(new List<String>() { "Gold", "Red" }.Contains(ancestryType)) { breathWeapon = "15 ft. cone (Dex. save)"; }
+                    string ancestryType = possibleAncestries[ancestryNum];
+                    string breathWeapon;
+                    if(new List<string>() { "Black", "Blue", "Brass", "Bronze", "Copper" }.Contains(ancestryType)) { breathWeapon = "5 by 30 ft. line (Dex. save)"; }
+                    else if(new List<string>() { "Gold", "Red" }.Contains(ancestryType)) { breathWeapon = "15 ft. cone (Dex. save)"; }
                     else { breathWeapon = "15 ft. cone (Con. save)"; }
                     traits.Add("Draconic Ancestry: " + ancestryType);
                     traits.Add("Breath Weapon: " + breathWeapon + " dealing 2d6");
@@ -379,7 +379,7 @@ namespace AEtherSlay
                     statRolls[3] += 2;
                     statRolls[2] += 1;
                     languages.Add("Gnomish");
-                    traits.AddRange(new List<String>() { "Darkvision", "Gnome Cunning", "Natural Illusionist", "Speak w/Small Beasts" });
+                    traits.AddRange(new List<string>() { "Darkvision", "Gnome Cunning", "Natural Illusionist", "Speak w/Small Beasts" });
                     break;
 
                 case 10:
@@ -387,7 +387,7 @@ namespace AEtherSlay
                     statRolls[3] += 2;
                     statRolls[1] += 1;
                     languages.Add("Gnomish");
-                    traits.AddRange(new List<String>() { "Darkvision", "Gnome Cunning", "Artificer's Lore", "Tinker" });
+                    traits.AddRange(new List<string>() { "Darkvision", "Gnome Cunning", "Artificer's Lore", "Tinker" });
                     break;
 
                 case 11:
@@ -401,7 +401,7 @@ namespace AEtherSlay
                     statRolls[a] += 1;
                     statRolls[b] += 1;
                     languages.Add("Elvish");
-                    traits.AddRange(new List<String>() { "Darkvision", "Fey Ancestry", "Skill Versatility" });
+                    traits.AddRange(new List<string>() { "Darkvision", "Fey Ancestry", "Skill Versatility" });
                     break;
 
                 case 12:
@@ -409,7 +409,7 @@ namespace AEtherSlay
                     statRolls[0] += 2;
                     statRolls[1] += 1;
                     languages.Add("Orc");
-                    traits.AddRange(new List<String>() { "Darkvision", "Relentless Endurance", "Savage Attacks" });
+                    traits.AddRange(new List<string>() { "Darkvision", "Relentless Endurance", "Savage Attacks" });
                     proficiencies.Add("Intimidation");
                     break;
 
@@ -417,7 +417,7 @@ namespace AEtherSlay
                     raceName = "Tiefling";
                     statRolls[3] += 1;
                     statRolls[5] += 2;
-                    traits.AddRange(new List<String>() { "Darkvision", "Infernal Legacy" });
+                    traits.AddRange(new List<string>() { "Darkvision", "Infernal Legacy" });
                     resistances.Add("Fire");
                     languages.Add("Infernal");
                     break;
@@ -430,14 +430,20 @@ namespace AEtherSlay
 
             #region Add Class Particulars
 
-            List<String> possiblePacks = new List<string>();
+            List<string> possiblePacks = new List<string>();
+
+            Catalog.Weapon weapToAdd; //Define weapon that may be added with quantity
+
             switch (classNum)
             {
                 case 0: //BARBARIAN
                     equipment.Add("4x Javelin");
                     possiblePacks.Add("Explorer's Pack");
                     primaryWeaponChoices.AddRange(Program.catalog.martialMelee);
-                    secondaryWeaponChoices.Add(Program.catalog.findWeapon("Handaxe"));
+                    weapToAdd = Program.catalog.findWeapon("Handaxe");
+                    weapToAdd.quantity = 2;
+                    secondaryWeaponChoices.Add(weapToAdd);
+                    //secondaryWeaponChoices.Add(Program.catalog.findWeapon("Handaxe"));
                     secondaryWeaponChoices.AddRange(Program.catalog.simpleMelee);
                     break;
                 case 1: //BARD
@@ -497,7 +503,10 @@ namespace AEtherSlay
                 case 5: //MONK
                     primaryWeaponChoices.AddRange(Program.catalog.simple);
                     primaryWeaponChoices.Add(Program.catalog.findWeapon("Shortsword"));
-                    secondaryWeaponChoices.Add(Program.catalog.findWeapon("Dart"));
+                    weapToAdd = Program.catalog.findWeapon("Dart");
+                    weapToAdd.quantity = 10;
+                    secondaryWeaponChoices.Add(weapToAdd);
+                    //secondaryWeaponChoices.Add(Program.catalog.findWeapon("Dart"));
                     possiblePacks.Add("Explorer's Pack");
                     possiblePacks.Add("Dungeoneer's Pack");
                     break;
@@ -614,7 +623,7 @@ namespace AEtherSlay
             {
                 statMods = Program.catalog.calcModifiers(statRolls);
 
-                Int16 i = 0;
+                short i = 0;
                 foreach (TextBox box in statModifierBoxes)
                 {
                     //REMOVED BECAUSE MESSES WITH SAVING CHARACTERS
@@ -662,16 +671,16 @@ namespace AEtherSlay
                 }
 
                 rtbProficiencies.Text = "PROFICIENCIES\n\n";
-                foreach (String prof in proficiencies) { rtbProficiencies.Text += prof + "\n"; }
+                foreach (string prof in proficiencies) { rtbProficiencies.Text += prof + "\n"; }
 
                 rtbTraits.Text = "TRAITS\n\n";
-                foreach (String trait in traits) { rtbTraits.Text += trait + "\n"; }
+                foreach (string trait in traits) { rtbTraits.Text += trait + "\n"; }
 
                 rtbLanguages.Text = "LANGUAGES\n\n";
-                foreach (String language in languages) { rtbLanguages.Text += language + "\n"; }
+                foreach (string language in languages) { rtbLanguages.Text += language + "\n"; }
 
                 rtbEquipment.Text = "EQUIPMENT\n\n";
-                foreach (String equip in equipment) { rtbEquipment.Text += equip + "\n"; }
+                foreach (string equip in equipment) { rtbEquipment.Text += equip + "\n"; }
 
             } catch(Exception ex)
             {
@@ -726,33 +735,33 @@ namespace AEtherSlay
                 {
                     Catalog.Armor armor;
                     List<Catalog.Weapon> weapons = new List<Catalog.Weapon>();
-                    String name = txtName.Text;
+                    string name = txtName.Text;
                     if (cbWeapon1.SelectedIndex != -1)
                     {
                         weapons.Add((Catalog.Weapon)(((ComboboxItem)cbWeapon1.SelectedItem).Value));
                     }
                     if (cbWeapon2.SelectedIndex != -1)
                     {
-                        //weapons.Add(Program.catalog.findWeapon((String)cbWeapon2.Text));
+                        //weapons.Add(Program.catalog.findWeapon((string)cbWeapon2.Text));
                         weapons.Add((Catalog.Weapon)(((ComboboxItem)cbWeapon2.SelectedItem).Value));
                     }
-                    armor = Program.catalog.findArmor((string)cbArmor1.Text);
+                    armor = Program.catalog.findArmor(cbArmor1.Text);
 
-                    string equipString = "", traitString = "", profString = "";
+                    string equipstring = "", traitstring = "", profstring = "";
                     foreach(string equip in equipment)
                     {
-                        equipString += $"${equip}\n";
+                        equipstring += $"{equip}\n";
                     }
                     foreach (string trait in traits)
                     {
-                        traitString += $"${trait}\n";
+                        traitstring += $"{trait}\n";
                     }
                     foreach (string prof in proficiencies)
                     {
-                        profString += $"${prof}\n";
+                        profstring += $"{prof}\n";
                     }
 
-                    player = new Catalog.PlayerCharacter(name, statRolls, className, raceName, speed, weapons, armor, alignment, equipString, languages, resistances, spellcastingStat, profString, hitDiceSides, savingThrows, traitString);
+                    player = new Catalog.PlayerCharacter(name, statRolls, className, raceName, speed, weapons, armor, alignment, equipstring, languages, resistances, spellcastingStat, profstring, hitDiceSides, savingThrows, traitstring);
                     Program.storage.addCharacterSheet(player);
                     MessageBox.Show("Success!", "Character Created!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } catch

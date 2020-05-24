@@ -49,6 +49,9 @@ namespace AEtherSlay
         }
         #endregion
 
+        //YES THIS WAS MANUALLY COPIED
+        //NO I CAN'T THINK OF A BETTER WAY
+        //YES MY WRISTS HURT
         #region Variables
         public Random rand = new Random();
         public List<Weapon> simpleMelee = new List<Weapon>() {

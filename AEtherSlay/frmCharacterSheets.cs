@@ -14,7 +14,7 @@ namespace AEtherSlay
     {
         TextBox[] coreStatBoxes;
         TextBox[] statModifierBoxes;
-        Boolean editModeEnabled = false;
+        bool editModeEnabled = false;
         Catalog.PlayerCharacter selectedCharacter;
         List<Catalog.Weapon> storedWeapons = new List<Catalog.Weapon>();
         Catalog.Armor storedArmor;
@@ -64,7 +64,7 @@ namespace AEtherSlay
             storedWeapons = new List<Catalog.Weapon>();
             storedArmor = null;
 
-            Int16 i = 0;
+            short i = 0;
 
             #region Calculate Core Modifiers
             foreach (TextBox box in statModifierBoxes)
@@ -108,19 +108,15 @@ namespace AEtherSlay
                 lbWeapons.Items.Clear();
             }
             txtName.Text = selectedCharacter.name;
-            rtbNotes.Text = selectedCharacter.notes;
+            rtbNotes.Text = selectedCharacter.notes ?? "NOTES";
 
-            rtbProficiencies.Text = "PROFICIENCIES\n\n";
-            rtbProficiencies.Text = selectedCharacter.proficiencies;
+            rtbProficiencies.Text = $"PROFICIENCIES\n\n{selectedCharacter.proficiencies}";
 
-            rtbTraits.Text = "TRAITS\n\n";
-            rtbTraits.Text += selectedCharacter.traits;
+            rtbTraits.Text = $"TRAITS\n\n{selectedCharacter.traits}";
 
-            rtbLanguages.Text = "LANGUAGES\n\n";
-            rtbLanguages.Text += selectedCharacter.languages;
+            rtbLanguages.Text = $"LANGUAGES\n\n{string.Join("\n", selectedCharacter.languages.ToArray())}";
 
-            rtbEquipment.Text = "EQUIPMENT\n\n";
-            rtbEquipment.Text += selectedCharacter.equipment;
+            rtbEquipment.Text = $"EQUIPMENT\n\n{selectedCharacter.equipment}";
         }
 
         private void lbWeapons_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,13 +188,13 @@ namespace AEtherSlay
 
         private void saveCharacter()
         {
-            String newName  = txtName.Text;
-            String newRace  = txtRace.Text;
-            String newClass = txtClass.Text;
-            String newHP    = txtHP.Text;
-            String newProf  = txtProf.Text;
-            String newSpeed = txtSpeed.Text;
-            String newInit  = txtInit.Text;
+            string newName  = txtName.Text;
+            string newRace  = txtRace.Text;
+            string newClass = txtClass.Text;
+            string newHP    = txtHP.Text;
+            string newProf  = txtProf.Text;
+            string newSpeed = txtSpeed.Text;
+            string newInit  = txtInit.Text;
             short[] newStats = new short[] { short.Parse(txtStr.Text), short.Parse(txtCon.Text), short.Parse(txtDex.Text), short.Parse(txtInt.Text), short.Parse(txtWis.Text), short.Parse(txtCha.Text) };
             short[] newStatMods = new short[] { short.Parse(txtStrMod.Text), short.Parse(txtConMod.Text), short.Parse(txtDexMod.Text), short.Parse(txtIntMod.Text), short.Parse(txtWisMod.Text), short.Parse(txtChaMod.Text) };
             Catalog.Armor  newArmor = storedArmor;

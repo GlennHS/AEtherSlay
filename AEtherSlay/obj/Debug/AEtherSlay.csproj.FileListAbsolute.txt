@@ -16,7 +16,6 @@ C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\bin\Debug\AEt
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\bin\Debug\AEtherSlay.exe
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\bin\Debug\AEtherSlay.pdb
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.Properties.Resources.resources
-C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.csproj.CoreCompileInputs.cache
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\bin\Debug\AEtherSlay.exe.manifest
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\bin\Debug\AEtherSlay.application
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.exe.manifest
@@ -50,10 +49,9 @@ C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmNewA
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Debug\Newtonsoft.Json.dll
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\bin\Debug\Newtonsoft.Json.xml
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.csproj.CopyComplete
-C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmSplash.resources
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCreatureLookup.resources
-C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCreatureFilter.resources
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmCreatureLookup.resources
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmSpells.resources
 C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmSpells.resources
 C:\Users\glenn\Documents\Code\AetherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmFilterCreatures.resources
+C:\Users\Glenn Hamilton-Smith\Documents\Code\AEtherSlay\AEtherSlay\obj\Debug\AEtherSlay.frmFilterCreatures.resources
